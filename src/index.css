@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@400;600&family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+:root {
+  /* base */
+  --bg-primary: #0b1120;
+  --bg-primary-alt: #0f172a;
+  --bg-surface: rgba(255, 255, 255, 0.05);
+  --bg-surface-strong: rgba(255, 255, 255, 0.08);
+
+  /* accents — dupla cromática oficial (Figma blue / Canva purple) */
+  --accent-blue: #3b82f6;
+  --accent-blue-deep: #2563eb;
+  --accent-purple: #8b3dff;
+  --accent-purple-light: #a855f7;
+
+  /* neutros */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  /* glass */
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --border-glass-strong: rgba(255, 255, 255, 0.18);
+  --glass-blur: 20px;
+
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Archivo Black', serif;
+}
+
+/* seleção com os accents do tema */
+::selection {
+  background: var(--accent-blue);
+  color: #ffffff;
+}
