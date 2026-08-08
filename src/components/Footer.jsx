@@ -1,93 +1,29 @@
 import React from 'react';
 import './Footer.css';
-import profileImage from '../../Trabalhos/img_violada.jpeg';
-import instagramIcon from '../../icons/Instagram.png';
-import linkedinIcon from '../../icons/LinkedIn.png';
 import gmailIcon from '../../icons/Gmail.png';
 
 const Footer = () => {
-  const socialLinks = [
-    {
-      name: 'Instagram',
-      icon: instagramIcon,
-      href: 'https://instagram.com',
-      color: '#C9A66B',
-    },
-    {
-      name: 'LinkedIn',
-      icon: linkedinIcon,
-      href: 'https://linkedin.com',
-      color: '#4A90A4',
-    },
-    {
-      name: 'Email',
-      icon: gmailIcon,
-      href: 'mailto:contato@fabioborges.com',
-      color: '#C9A66B',
-    },
-  ];
-
   return (
     <footer id="footer" className="cartoon-footer">
       <div className="container footer-container">
-        <div className="footer-decoration">
-          <div className="decoration-star star-1">✦</div>
-          <div className="decoration-star star-2">✦</div>
-          <div className="decoration-star star-3">✦</div>
-          <div className="decoration-star star-4">✦</div>
-        </div>
-
-        <div className="footer-content">
-          <div className="footer-cta">
-            <div className="footer-badge">
-              <span className="footer-badge-dot"></span>
-              <span className="footer-badge-text">Vamos Conversar?</span>
-            </div>
-            <h2 className="footer-title">Disponível para novos projetos</h2>
-            <p className="footer-description">
-              Entre em contato através das redes sociais ou e-mail. Estou sempre aberto a novas colaborações e oportunidades criativas.
-            </p>
-          </div>
-
-          <div className="footer-social">
-            {socialLinks.map((social) => (
-              <a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon-card"
-                style={{ '--icon-color': social.color }}
-              >
-                <div className="social-icon-container">
-                  <img 
-                    src={social.icon} 
-                    alt={social.name}
-                    className="social-icon-img"
-                  />
-                </div>
-                <span className="social-icon-name">{social.name}</span>
-              </a>
-            ))}
-          </div>
-
-          <div className="footer-brand">
-            <div className="footer-brand-avatar">
-              <img 
-                src={profileImage} 
-                alt="Fábio Borges"
-                className="footer-brand-avatar-image"
+        <div className="footer-social">
+          <a
+            href="mailto:fhbfabao@gmail.com"
+            className="social-icon-card"
+            style={{ '--icon-color': '#EA4335' }}
+          >
+            <div className="social-icon-container">
+              <img
+                src={gmailIcon}
+                alt="Email"
+                className="social-icon-img"
               />
             </div>
-            <div className="footer-brand-text">
-              <span className="footer-brand-name">Fábio Borges</span>
-              <span className="footer-brand-tagline">Designer Visual</span>
-            </div>
-          </div>
-
-          <div className="footer-copyright">
-            <p>© 2026 Fábio Henrique Borges Filho. Feito com ☕ e criatividade.</p>
-          </div>
+            <span className="social-icon-name">Email</span>
+          </a>
+        </div>
+        <div className="footer-copyright">
+          <p>© 2026 todos os direitos reservados</p>
         </div>
       </div>
     </footer>

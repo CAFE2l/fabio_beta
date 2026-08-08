@@ -15,11 +15,11 @@ const About = () => {
           </p>
           <div className="about-stats">
             <div className="about-stat">
-              <span className="about-stat-number">+5</span>
+              <span className="about-stat-number">+1</span>
               <span className="about-stat-label">Anos de Experiência</span>
             </div>
             <div className="about-stat">
-              <span className="about-stat-number">+100</span>
+              <span className="about-stat-number">+10</span>
               <span className="about-stat-label">Projetos Realizados</span>
             </div>
           </div>

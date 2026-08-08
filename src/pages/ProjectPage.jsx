@@ -36,7 +36,7 @@ const ProjectPage = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
     >
-      <div className="container project-page-container">
+      <div className="project-page-container">
         {/* Back Button */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -178,23 +178,6 @@ const ProjectPage = () => {
               <span className="project-nav-arrow">→</span>
             </Link>
           )}
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div 
-          className="project-cta"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3, duration: 0.5 }}
-        >
-          <div className="project-cta-card">
-            <h3 className="project-cta-title">Gostou deste projeto?</h3>
-            <p className="project-cta-text">Entre em contato para discutirmos como posso ajudar com seus projetos visuais.</p>
-            <Link to="/#footer" className="project-cta-button">
-              <span className="project-cta-button-text">Entrar em Contato</span>
-              <span className="project-cta-button-arrow">→</span>
-            </Link>
-          </div>
         </motion.div>
       </div>
     </motion.div>

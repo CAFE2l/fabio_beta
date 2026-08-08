@@ -14,22 +14,26 @@
 
 .project-card-inner {
   position: relative;
-  background: linear-gradient(135deg, rgba(250, 247, 242, 0.95), rgba(245, 240, 230, 0.95));
-  border: 2px solid rgba(44, 62, 80, 0.12);
+  background: rgba(250, 247, 242, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(44, 62, 80, 0.15);
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 
     0 4px 16px rgba(44, 62, 80, 0.08),
-    0 0 0 1px rgba(255, 255, 255, 0.5);
+    0 0 0 1px rgba(255, 255, 255, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  transform-style: preserve-3d;
 }
 
 .project-card-inner:hover {
   box-shadow: 
-    0 12px 32px rgba(44, 62, 80, 0.15),
+    0 12px 32px rgba(44, 62, 80, 0.18),
     0 0 0 1px rgba(74, 144, 164, 0.2);
-  border-color: rgba(74, 144, 164, 0.3);
+  border-color: rgba(74, 144, 164, 0.25);
+  background: rgba(250, 247, 242, 0.8);
+  backdrop-filter: blur(16px);
 }
 
 .project-image-container {
@@ -178,12 +182,29 @@
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.15) 0%,
     rgba(255, 255, 255, 0.05) 100%
   );
   pointer-events: none;
   z-index: 1;
   transition: all 0.3s ease;
+}
+
+.project-glow {
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    135deg,
+    rgba(74, 144, 164, 0.3) 0%,
+    rgba(91, 164, 164, 0.2) 50%,
+    rgba(74, 144, 164, 0.3) 100%
+  );
+  border-radius: 22px;
+  filter: blur(20px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
 }
 
 @media (max-width: 768px) {
@@ -207,25 +228,16 @@
     font-size: 13px;
   }
 
-  .project-category-badge {
-    padding: 6px 12px;
-  }
-
-  .project-category-text {
-    font-size: 11px;
-  }
-
-  .project-year {
-    padding: 5px 10px;
-    font-size: 11px;
-  }
-
   .project-view-button {
     padding: 10px 16px;
   }
 
   .project-view-text {
     font-size: 13px;
+  }
+
+  .project-view-arrow {
+    font-size: 14px;
   }
 
   .decoration-star {

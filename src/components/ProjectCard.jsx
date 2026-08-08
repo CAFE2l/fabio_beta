@@ -1,10 +1,39 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import './ProjectCard.css';
 
 const ProjectCard = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef(null);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const rotateX = useTransform(mouseY, [-0.5, 0.5], [-8, 8]);
+  const rotateY = useTransform(mouseX, [-0.5, 0.5], [8, -8]);
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    mouseX.set((x - centerX) / centerX);
+    mouseY.set((y - centerY) / centerY);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
+  const springConfig = {
+    damping: 25,
+    stiffness: 700,
+  };
 
   return (
     <motion.div
@@ -16,15 +45,23 @@ const ProjectCard = ({ project, index }) => {
         delay: index * 0.1,
         ease: [0.25, 0.1, 0.25, 1]
       }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        handleMouseLeave();
+      }}
     >
       <Link to={`/project/${project.slug}`} className="project-card-link">
         <motion.div
+          ref={cardRef}
           className="project-card-inner"
+          style={{
+            rotateX: useSpring(rotateX, springConfig),
+            rotateY: useSpring(rotateY, springConfig),
+            transformStyle: "preserve-3d",
+          }}
+          onMouseMove={handleMouseMove}
           whileHover={{ 
-            rotateX: 5,
-            rotateY: -5,
             scale: 1.02,
             y: -8
           }}
@@ -32,10 +69,6 @@ const ProjectCard = ({ project, index }) => {
             type: "spring", 
             stiffness: 300, 
             damping: 20 
-          }}
-          style={{
-            transformStyle: "preserve-3d",
-            perspective: 1000
           }}
         >
           {/* Image Container */}
@@ -100,8 +133,18 @@ const ProjectCard = ({ project, index }) => {
           <motion.div 
             className="project-glass-effect"
             animate={{ 
-              opacity: isHovered ? 0.3 : 0,
-              backdropFilter: isHovered ? 'blur(8px)' : 'blur(0px)'
+              opacity: isHovered ? 0.4 : 0,
+              backdropFilter: isHovered ? 'blur(12px)' : 'blur(0px)'
+            }}
+            transition={{ duration: 0.3 }}
+          />
+
+          {/* Dynamic Glow */}
+          <motion.div 
+            className="project-glow"
+            animate={{ 
+              opacity: isHovered ? 0.6 : 0,
+              scale: isHovered ? 1.1 : 1
             }}
             transition={{ duration: 0.3 }}
           />
