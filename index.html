@@ -2,10 +2,26 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="color-scheme" content="light" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="theme-color" content="#FFFFFF" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fábio Henrique Borges Filho — Portfólio</title>
+    <style>
+      /* Force light mode - block dark mode extensions */
+      :root {
+        color-scheme: light only;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          color-scheme: light only;
+        }
+      }
+      body {
+        background-color: #FFFFFF !important;
+        color: #2C3E50 !important;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

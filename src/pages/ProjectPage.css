@@ -1,7 +1,7 @@
 .project-page {
   min-height: 100vh;
   padding: 32px 0 64px;
-  background: linear-gradient(135deg, #F5F0E6 0%, #FAF7F2 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 100%);
 }
 
 .project-page-container {
@@ -47,20 +47,30 @@
   margin-bottom: 48px;
 }
 
+.project-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
 .project-hero-image-container {
   position: relative;
   width: 100%;
-  height: 500px;
-  border-radius: 24px;
+  max-height: 500px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.12);
-  margin-bottom: 32px;
+  background: linear-gradient(135deg, #F5F5F5, #FAFAFA);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project-hero-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
 }
 
 .project-hero-overlay {
@@ -76,33 +86,32 @@
 }
 
 .project-hero-content {
-  position: relative;
-}
-
-.project-hero-badge {
   display: flex;
-  gap: 12px;
-  margin-bottom: 20px;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.project-hero-category {
-  padding: 8px 16px;
-  background: rgba(74, 144, 164, 0.15);
-  border: 1px solid rgba(74, 144, 164, 0.25);
-  border-radius: 16px;
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-  font-size: 14px;
-  font-weight: 600;
-  color: #4A90A4;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.project-hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #2C3E50;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.project-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .project-hero-year {
   padding: 8px 16px;
   background: rgba(201, 166, 107, 0.15);
   border: 1px solid rgba(201, 166, 107, 0.25);
-  border-radius: 16px;
+  border-radius: 12px;
   font-family: 'Comic Sans MS', 'Comic Sans', cursive;
   font-size: 14px;
   font-weight: 600;
@@ -111,22 +120,11 @@
   letter-spacing: 0.5px;
 }
 
-.project-hero-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 56px;
-  font-weight: 700;
-  color: #2C3E50;
-  margin: 0 0 16px 0;
-  line-height: 1.1;
-  letter-spacing: -1px;
-}
-
 .project-hero-subtitle {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.7;
   color: #546E7A;
   margin: 0;
-  max-width: 700px;
 }
 
 .project-description-section {
@@ -135,7 +133,7 @@
 
 .project-description-card {
   padding: 40px;
-  background: linear-gradient(135deg, rgba(250, 247, 242, 0.95), rgba(245, 240, 230, 0.95));
+  background: linear-gradient(135deg, rgba(250, 250, 250, 0.95), rgba(245, 245, 245, 0.95));
   border: 1px solid rgba(44, 62, 80, 0.1);
   border-radius: 20px;
   box-shadow: 0 4px 16px rgba(44, 62, 80, 0.06);
@@ -162,7 +160,7 @@
 
 .project-tags-card {
   padding: 40px;
-  background: linear-gradient(135deg, rgba(250, 247, 242, 0.95), rgba(245, 240, 230, 0.95));
+  background: linear-gradient(135deg, rgba(250, 250, 250, 0.95), rgba(245, 245, 245, 0.95));
   border: 1px solid rgba(44, 62, 80, 0.1);
   border-radius: 20px;
   box-shadow: 0 4px 16px rgba(44, 62, 80, 0.06);
@@ -297,9 +295,18 @@
     margin-bottom: 24px;
   }
 
+  .project-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
   .project-hero-image-container {
-    height: 350px;
-    border-radius: 20px;
+    max-height: 350px;
+    border-radius: 16px;
+  }
+
+  .project-hero-image {
+    max-height: 350px;
   }
 
   .project-hero-title {

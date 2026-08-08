@@ -20,6 +20,7 @@
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 32px;
   padding: 0 16px;
+  align-items: start;
 }
 
 @media (max-width: 768px) {

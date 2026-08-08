@@ -3,7 +3,7 @@
   top: 24px;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 9999;
   margin-bottom: 48px;
   transition: box-shadow 0.3s ease;
 }
@@ -19,13 +19,12 @@
 }
 
 .navbar-panel {
-  background: linear-gradient(135deg, #FAF7F2 0%, #F5F0E6 100%);
+  background: linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 100%);
   border: 2px solid rgba(44, 62, 80, 0.12);
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(44, 62, 80, 0.08);
   overflow: visible;
   position: relative;
-  animation: navbarFloat 6s ease-in-out infinite;
 }
 
 @keyframes navbarFloat {

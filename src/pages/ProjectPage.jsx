@@ -56,57 +56,61 @@ const ProjectPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          <motion.div 
-            className="project-hero-image-container"
-            layoutId={`project-image-${project.slug}`}
-          >
-            <motion.img
-              src={project.image}
-              alt={project.title}
-              className="project-hero-image"
-              initial={{ scale: 1.1 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            />
-            <div className="project-hero-overlay" />
-          </motion.div>
-
-          <motion.div 
-            className="project-hero-content"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-          >
+          <div className="project-hero-grid">
             <motion.div 
-              className="project-hero-badge"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6, duration: 0.3 }}
+              className="project-hero-image-container"
+              layoutId={`project-image-${project.slug}`}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
             >
-              <span className="project-hero-category">{project.tags[0]}</span>
-              <span className="project-hero-year">{project.year}</span>
+              <motion.img
+                src={project.image}
+                alt={project.title}
+                className="project-hero-image"
+                initial={{ scale: 1.1 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+              />
+              <div className="project-hero-overlay" />
             </motion.div>
 
-            <motion.h1 
-              className="project-hero-title"
-              layoutId={`project-title-${project.slug}`}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.4 }}
+            <motion.div 
+              className="project-hero-content"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
             >
-              {project.title}
-            </motion.h1>
+              <motion.h1 
+                className="project-hero-title"
+                layoutId={`project-title-${project.slug}`}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.4 }}
+              >
+                {project.title}
+              </motion.h1>
 
-            <motion.p 
-              className="project-hero-subtitle"
-              layoutId={`project-subtitle-${project.slug}`}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.4 }}
-            >
-              {project.subtitle}
-            </motion.p>
-          </motion.div>
+              <motion.div 
+                className="project-hero-meta"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.4 }}
+              >
+                <span className="project-hero-year">{project.year}</span>
+              </motion.div>
+
+              <motion.p 
+                className="project-hero-subtitle"
+                layoutId={`project-subtitle-${project.slug}`}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.4 }}
+              >
+                {project.subtitle}
+              </motion.p>
+            </motion.div>
+          </div>
         </motion.div>
 
         {/* Description Section */}
