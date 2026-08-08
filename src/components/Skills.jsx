@@ -8,6 +8,8 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts';
+import { motion } from 'framer-motion';
+import canvaLogo from '../../Trabalhos/canva.png';
 import './Skills.css';
 
 const Skills = () => {
@@ -19,7 +21,12 @@ const Skills = () => {
     { subject: 'Tipografia', value: 80, fullMark: 100 },
   ];
 
-  const tools = ['Canva'];
+  const tools = [
+    {
+      name: 'Canva',
+      icon: <img src={canvaLogo} alt="Canva" className="skills-tool-icon-img" />,
+    },
+  ];
 
   return (
     <section id="skills" className="skills">
@@ -71,12 +78,25 @@ const Skills = () => {
             </div>
             <div className="skills-tools">
               {tools.map((tool, index) => (
-                <div
-                  key={tool}
-                  className="skills-tool-tag"
+                <motion.a
+                  key={tool.name}
+                  href="https://www.canva.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="skills-tool-card"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.1, duration: 0.3 }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: '0 8px 24px rgba(74, 144, 164, 0.2)'
+                  }}
                 >
-                  <span>{tool}</span>
-                </div>
+                  <div className="skills-tool-icon">
+                    {tool.icon}
+                  </div>
+                  <span className="skills-tool-name">{tool.name}</span>
+                </motion.a>
               ))}
             </div>
           </div>

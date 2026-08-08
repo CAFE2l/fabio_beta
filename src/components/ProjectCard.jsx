@@ -38,18 +38,6 @@ const ProjectCard = ({ project, index }) => {
             perspective: 1000
           }}
         >
-          {/* Category Badge */}
-          <motion.div 
-            className="project-category-badge"
-            animate={{ 
-              scale: isHovered ? 1.05 : 1,
-              y: isHovered ? -2 : 0
-            }}
-            transition={{ duration: 0.2 }}
-          >
-            <span className="project-category-text">{project.tags[0]}</span>
-          </motion.div>
-
           {/* Image Container */}
           <motion.div 
             className="project-image-container"
@@ -80,13 +68,6 @@ const ProjectCard = ({ project, index }) => {
             >
               {project.subtitle}
             </motion.p>
-
-            <motion.div 
-              className="project-year"
-              animate={{ opacity: isHovered ? 1 : 0.7 }}
-            >
-              {project.year}
-            </motion.div>
 
             {/* View Project Button */}
             <motion.div 

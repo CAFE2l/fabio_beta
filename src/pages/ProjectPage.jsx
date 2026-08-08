@@ -17,12 +17,10 @@ const ProjectPage = () => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <div className="container">
-          <Link to="/#projects" className="back-link">
-            ← Voltar para Trabalhos
-          </Link>
-          <p>Projeto não encontrado.</p>
-        </div>
+        <Link to="/#projects" className="back-link">
+          ← Voltar para Trabalhos
+        </Link>
+        <p>Projeto não encontrado.</p>
       </motion.div>
     );
   }

@@ -4,6 +4,7 @@ import profileImage from '../../Trabalhos/img_violada.jpeg';
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinks = [
     { name: 'Início', href: '#hero', id: 'hero' },
@@ -30,6 +31,9 @@ const Navbar = () => {
           }
         }
       }
+
+      // Detect scroll for shadow effect
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -46,65 +50,67 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="cartoon-navbar">
-      <div className="navbar-panel">
-        <div className="navbar-content">
-          <div className="navbar-brand">
-            <div className="brand-avatar">
-              <img 
-                src={profileImage} 
-                alt="Fábio Borges"
-                className="navbar-avatar-image"
-              />
+    <nav className={`cartoon-navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="container navbar-wrapper">
+        <div className="navbar-panel">
+          <div className="navbar-content">
+            <div className="navbar-brand">
+              <div className="brand-avatar">
+                <img 
+                  src={profileImage} 
+                  alt="Fábio Borges"
+                  className="navbar-avatar-image"
+                />
+              </div>
+              <div className="brand-text">
+                <span className="brand-name">Fábio Borges</span>
+                <span className="brand-tagline">Designer Visual</span>
+              </div>
             </div>
-            <div className="brand-text">
-              <span className="brand-name">Fábio Borges</span>
-              <span className="brand-tagline">Designer Visual</span>
+
+            <div className="navbar-desktop">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleLinkClick(e, link.href)}
+                  className={`nav-link ${activeSection === link.id ? 'nav-link-active' : ''}`}
+                >
+                  <span className="nav-link-text">{link.name}</span>
+                  {activeSection === link.id && <span className="nav-link-indicator" />}
+                </a>
+              ))}
             </div>
+
+            <button 
+              className="mobile-menu-btn"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Menu"
+            >
+              <span className={`menu-icon ${isMobileMenuOpen ? 'menu-icon-open' : ''}`}>
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </button>
           </div>
 
-          <div className="navbar-desktop">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, link.href)}
-                className={`nav-link ${activeSection === link.id ? 'nav-link-active' : ''}`}
-              >
-                <span className="nav-link-text">{link.name}</span>
-                {activeSection === link.id && <span className="nav-link-indicator" />}
-              </a>
-            ))}
-          </div>
-
-          <button 
-            className="mobile-menu-btn"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Menu"
-          >
-            <span className={`menu-icon ${isMobileMenuOpen ? 'menu-icon-open' : ''}`}>
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </button>
+          {isMobileMenuOpen && (
+            <div className="mobile-menu">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleLinkClick(e, link.href)}
+                  className={`mobile-nav-link ${activeSection === link.id ? 'mobile-nav-link-active' : ''}`}
+                >
+                  <span className="mobile-nav-link-text">{link.name}</span>
+                  {activeSection === link.id && <span className="mobile-nav-link-indicator" />}
+                </a>
+              ))}
+            </div>
+          )}
         </div>
-
-        {isMobileMenuOpen && (
-          <div className="mobile-menu">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, link.href)}
-                className={`mobile-nav-link ${activeSection === link.id ? 'mobile-nav-link-active' : ''}`}
-              >
-                <span className="mobile-nav-link-text">{link.name}</span>
-                {activeSection === link.id && <span className="mobile-nav-link-indicator" />}
-              </a>
-            ))}
-          </div>
-        )}
       </div>
 
       <div className="navbar-decoration">

@@ -32,28 +32,6 @@
   border-color: rgba(74, 144, 164, 0.3);
 }
 
-.project-category-badge {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 10;
-  padding: 8px 16px;
-  background: rgba(74, 144, 164, 0.15);
-  border: 1px solid rgba(74, 144, 164, 0.25);
-  border-radius: 16px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.project-category-text {
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-  font-size: 12px;
-  font-weight: 600;
-  color: #4A90A4;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
 .project-image-container {
   position: relative;
   width: 100%;
@@ -103,23 +81,6 @@
   color: #546E7A;
   margin: 0 0 16px 0;
   font-weight: 400;
-}
-
-.project-year {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  padding: 6px 12px;
-  background: rgba(201, 166, 107, 0.15);
-  border: 1px solid rgba(201, 166, 107, 0.25);
-  border-radius: 12px;
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-  font-size: 12px;
-  font-weight: 600;
-  color: #C9A66B;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  z-index: 10;
 }
 
 .project-view-button {
