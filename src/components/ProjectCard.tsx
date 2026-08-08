@@ -54,18 +54,18 @@ function ProjectCardLayers({ project }: { project: Project }) {
         <div className="pointer-events-none absolute inset-0 rounded-[0.85rem] bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_42%)]" />
         <div className="flex items-start justify-between gap-2">
           <div>
-            <h3 className="font-['Archivo_Black'] text-xl uppercase tracking-wide text-[#1B2A4A]">
+            <h3 className="font-['Archivo_Black'] text-xl uppercase tracking-wide text-[var(--text-primary)]">
               {project.title}
             </h3>
-            <p className="mt-1 text-sm leading-6 text-[#2a3b59]">{project.subtitle}</p>
+            <p className="mt-1 text-sm leading-6 text-[var(--text-secondary)]">{project.subtitle}</p>
           </div>
-          <span className="shrink-0 font-['Caveat'] text-lg text-[#1B2A4A] opacity-80">{project.year}</span>
+          <span className="shrink-0 font-['Comic_Sans_MS','Comic_Sans',cursive] text-lg text-[var(--text-secondary)]">{project.year}</span>
         </div>
         <div className="mt-3 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-white/10 bg-[linear-gradient(135deg,rgba(0,194,209,0.16)_0%,rgba(143,227,136,0.12)_100%)] px-3 py-1 text-xs uppercase tracking-widest text-[#2a3b59]"
+              className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-widest text-[var(--text-secondary)]"
             >
               {tag}
             </span>
@@ -73,7 +73,7 @@ function ProjectCardLayers({ project }: { project: Project }) {
         </div>
         <Link
           to={`/projeto/${project.slug}`}
-          className="mt-4 flex items-center gap-1 font-['Caveat'] text-lg text-[#1B2A4A] underline-offset-4 hover:underline"
+          className="mt-4 flex items-center gap-1 font-['Comic_Sans_MS','Comic_Sans',cursive] text-lg text-[var(--accent-blue)] underline-offset-4 hover:underline"
         >
           ver projeto
           <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">

@@ -47,12 +47,12 @@ export default function Footer() {
           className="mb-8 text-center"
         >
           <p
-            className="font-['Caveat'] text-4xl sm:text-5xl text-[#1B2A4A]"
+            className="font-['Comic_Sans_MS','Comic_Sans',cursive] text-4xl sm:text-5xl text-[var(--text-primary)]"
             style={{ textShadow: '0 0 24px rgba(59,130,246,0.45)' }}
           >
             vamos conversar?
           </p>
-          <p className="mt-2 text-[#2a3b59] text-lg">
+          <p className="mt-2 text-[var(--text-secondary)] text-lg">
             Disponível para novos projetos, colaborações e trabalho freelance.
           </p>
         </motion.div>
@@ -100,7 +100,7 @@ export default function Footer() {
                       alt={c.label}
                       className="h-14 w-14 object-contain drop-shadow-lg"
                     />
-                    <span className="font-['Caveat'] text-2xl text-[#1B2A4A]">
+                    <span className="font-['Comic_Sans_MS','Comic_Sans',cursive] text-2xl text-[var(--text-primary)]">
                       {c.label}
                     </span>
                   </TiltCard>
@@ -129,8 +129,8 @@ export default function Footer() {
             <path d="M30 12v36" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
             <path d="M12 30h36" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
           </svg>
-          <p className="text-sm text-[#2a3b59] opacity-80">
-            © 2026 Fabio R. Silva — feito com café, curly hair e muita perspectiva 3D
+          <p className="text-sm text-[var(--text-secondary)] ">
+            © 2026 Fábio Henrique Borges Filho — feito com café e muita criatividade no Canva
           </p>
         </div>
       </div>

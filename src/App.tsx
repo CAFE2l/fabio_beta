@@ -22,20 +22,20 @@ import AuroraBackground from './components/AuroraBackground'
 import Footer from './components/Footer'
 
 const skills = [
-  { subject: 'Ilustração', value: 92, fullMark: 100 },
-  { subject: 'Marca', value: 88, fullMark: 100 },
-  { subject: 'UI/UX', value: 90, fullMark: 100 },
-  { subject: 'Animação', value: 84, fullMark: 100 },
-  { subject: 'Tipografia', value: 86, fullMark: 100 },
-  { subject: 'Direção de Arte', value: 89, fullMark: 100 },
+  { subject: 'Criação no Canva', value: 92, fullMark: 100 },
+  { subject: 'Identidade Visual', value: 86, fullMark: 100 },
+  { subject: 'Social Media', value: 90, fullMark: 100 },
+  { subject: 'Apresentações', value: 82, fullMark: 100 },
+  { subject: 'Tipografia', value: 80, fullMark: 100 },
+  { subject: 'Figma', value: 55, fullMark: 100 },
 ]
 
-const tools = ['Figma', 'Illustrator', 'Photoshop', 'After Effects', 'Procreate']
+const tools = ['Canva', 'Figma']
 
 function SectionLabel({ children, color }: { children: string; color: string }) {
   return (
     <p
-      className="font-['Caveat'] text-2xl"
+      className="font-['Comic_Sans_MS','Comic_Sans',cursive] text-2xl"
       style={{ color, textShadow: `0 0 18px ${color}66` }}
     >
       {children}
@@ -74,14 +74,14 @@ function Home() {
     <div className="min-h-screen p-4 sm:p-6 lg:p-8">
       <main className="mx-auto flex max-w-7xl flex-col gap-6">
         <nav className="flex flex-wrap items-center justify-between gap-3 rounded-[1.2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(0,194,209,0.20)_0%,rgba(143,227,136,0.16)_100%)] px-4 py-3 shadow-[0_0_30px_rgba(0,194,209,0.12)] backdrop-blur-xl">
-          <span className="bg-gradient-to-r from-[var(--accent-blue)] to-[var(--accent-purple-light)] bg-clip-text font-['Caveat'] text-2xl text-transparent">
+          <span className="bg-gradient-to-r from-[var(--accent-blue)] to-[var(--accent-purple-light)] bg-clip-text font-['Comic_Sans_MS','Comic_Sans',cursive] text-2xl text-transparent">
             fabio / portfolio
           </span>
-          <div className="flex flex-wrap gap-3 text-sm uppercase tracking-[0.2em] text-[#1B2A4A]">
-            <a href="#hero" className="transition hover:text-[#111111]">Início</a>
-            <a href="#about" className="transition hover:text-[#111111]">Sobre</a>
-            <a href="#skills" className="transition hover:text-[#111111]">Habilidades</a>
-            <a href="#portfolio" className="transition hover:text-[#111111]">Projetos</a>
+          <div className="flex flex-wrap gap-3 text-sm uppercase tracking-[0.2em] text-[var(--text-primary)]">
+            <a href="#hero" className="transition hover:text-[var(--text-primary)]">Início</a>
+            <a href="#about" className="transition hover:text-[var(--text-primary)]">Sobre</a>
+            <a href="#skills" className="transition hover:text-[var(--text-primary)]">Habilidades</a>
+            <a href="#portfolio" className="transition hover:text-[var(--text-primary)]">Projetos</a>
           </div>
         </nav>
 
@@ -92,15 +92,15 @@ function Home() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p
-                    className="font-['Caveat'] text-2xl text-[#1B2A4A]"
+                    className="font-['Comic_Sans_MS','Comic_Sans',cursive] text-2xl text-[var(--text-primary)]"
                     style={{ textShadow: '0 0 18px rgba(59,130,246,0.6)' }}
                   >
                     psst…
                   </p>
-                  <h1 className="font-['Archivo_Black'] text-5xl uppercase leading-[0.85] text-[#1B2A4A] sm:text-6xl lg:text-7xl">
-                    Fabio
+                  <h1 className="font-['Archivo_Black'] text-5xl uppercase leading-[0.85] text-[var(--text-primary)] sm:text-6xl lg:text-7xl">
+                    Fábio
                     <br />
-                    R. Silva
+                    H. Borges Filho
                   </h1>
                 </div>
                 <DoodleChip color={theme.accent.blue} rotate={-8} className="p-4">
@@ -119,15 +119,15 @@ function Home() {
                 className="rounded-[1.5rem] border border-white/10 bg-[linear-gradient(135deg,rgba(0,194,209,0.16)_0%,rgba(143,227,136,0.14)_100%)] p-6 shadow-[0_0_30px_rgba(0,194,209,0.14)] backdrop-blur-xl"
               >
                 <div className="mb-4 flex items-center gap-2">
-                  <svg viewBox="0 0 60 60" className="h-8 w-8 text-[#1B2A4A]" aria-hidden="true">
+                  <svg viewBox="0 0 60 60" className="h-8 w-8 text-[var(--text-primary)]" aria-hidden="true">
                     <path d="M14 18c8-8 18-8 26 2 5 6 5 15-2 22-5 5-12 6-18 3" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" />
                     <path d="M32 18l8-8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                     <path d="M36 24l10 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                   </svg>
-                  <span className="font-['Caveat'] text-2xl text-[#1B2A4A]">designer • ilustrador • diretor de arte</span>
+                  <span className="font-['Comic_Sans_MS','Comic_Sans',cursive] text-2xl text-[var(--text-primary)]">designer • criação visual no Canva • aprendendo Figma</span>
                 </div>
-                <p className="max-w-xl text-lg leading-8 text-[#2a3b59] sm:text-xl">
-                  Construo histórias com tipografia marcante, visuais táteis e energia à mão livre, que parecem impressas, pregadas e vividas.
+                <p className="max-w-xl text-lg leading-8 text-[var(--text-secondary)] sm:text-xl">
+                  Crio artes e materiais visuais completos no Canva — posts, identidades, apresentações e peças que comunicam de verdade — e estou começando a explorar o Figma para dar os próximos passos.
                 </p>
               </motion.div>
             </div>
@@ -166,17 +166,17 @@ function Home() {
         <section id="about" className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <TiltCard glowColor={theme.accent.blue} className="p-6">
             <SectionLabel color={theme.accent.blue}>sobre</SectionLabel>
-            <h2 className="mt-2 font-['Archivo_Black'] text-3xl uppercase tracking-wide text-[#1B2A4A]">
-              Um scrapbook de ideias, objetos e atmosfera.
+            <h2 className="mt-2 font-['Archivo_Black'] text-3xl uppercase tracking-wide text-[var(--text-primary)]">
+              Tudo começa no Canva — e logo, no Figma.
             </h2>
-            <p className="mt-4 max-w-xl text-lg leading-8 text-[#2a3b59]">
-              Crio mundos visuais que parecem colecionados, não apenas polidos — com uma mistura de rigor editorial, texturas desenhadas à mão e motion que dá pulso a cada projeto.
+            <p className="mt-4 max-w-xl text-lg leading-8 text-[var(--text-secondary)]">
+              Sou o Fábio: trabalho diariamente com criação visual no Canva, fazendo desde posts para redes sociais até identidades completas. Estou iniciando no Figma para evoluir para interfaces e protótipos.
             </p>
           </TiltCard>
 
           <TiltCard glowColor={theme.accent.purple} className="p-6">
             <div className="flex items-center gap-2">
-              <svg viewBox="0 0 60 60" className="h-8 w-8 text-[#1B2A4A]" aria-hidden="true">
+              <svg viewBox="0 0 60 60" className="h-8 w-8 text-[var(--text-primary)]" aria-hidden="true">
                 <path d="M16 16c10-10 28-8 34 10 6 17-6 30-18 30-8 0-16-6-16-15" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" />
                 <path d="M31 16l8-8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
               </svg>
@@ -196,7 +196,7 @@ function Home() {
                     boxShadow: `0 0 16px ${theme.accent.blue}22`,
                   }}
                 >
-                  <span className="text-[#1B2A4A]">{tool}</span>
+                  <span className="text-[var(--text-primary)]">{tool}</span>
                 </motion.div>
               ))}
             </div>
@@ -206,7 +206,7 @@ function Home() {
         <section id="skills" className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
           <TiltCard glowColor={theme.accent.blue} className="p-6">
             <SectionLabel color={theme.accent.blue}>habilidades</SectionLabel>
-            <h2 className="mt-2 font-['Archivo_Black'] text-3xl uppercase tracking-wide text-[#1B2A4A]">
+            <h2 className="mt-2 font-['Archivo_Black'] text-3xl uppercase tracking-wide text-[var(--text-primary)]">
               Um radar de pontos fortes.
             </h2>
             <div className="mt-6 h-[360px] w-full">
@@ -245,17 +245,17 @@ function Home() {
           <div className="flex flex-col gap-4">
             <TiltCard glowColor={theme.accent.purple} className="p-6">
               <div className="flex items-center gap-2">
-                <svg viewBox="0 0 60 60" className="h-8 w-8 text-[#1B2A4A]" aria-hidden="true">
+                <svg viewBox="0 0 60 60" className="h-8 w-8 text-[var(--text-primary)]" aria-hidden="true">
                   <path d="M14 26l16-12 16 12v20H14z" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" />
                   <path d="M22 36h16" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                 </svg>
                 <SectionLabel color={theme.accent.purple}>notas</SectionLabel>
               </div>
               <div className="mt-4 flex flex-wrap gap-3">
-                {['Clareza editorial', 'Sistemas visuais', 'Pensamento pronto para impressão', 'Motion guiado por história'].map((note) => (
+                {['Ritmo e harmonia visual', 'Cores e tipografia', 'Artes prontas para cada rede', 'Atenção ao detalhe'].map((note) => (
                   <div
                     key={note}
-                    className="rounded-[0.9rem] border border-white/10 bg-[linear-gradient(135deg,rgba(0,194,209,0.14)_0%,rgba(143,227,136,0.12)_100%)] px-4 py-3 text-[#2a3b59] backdrop-blur-md"
+                    className="rounded-[0.9rem] border border-white/10 bg-[linear-gradient(135deg,rgba(0,194,209,0.14)_0%,rgba(143,227,136,0.12)_100%)] px-4 py-3 text-[var(--text-secondary)] backdrop-blur-md"
                   >
                     {note}
                   </div>
@@ -272,8 +272,8 @@ function Home() {
               }}
             >
               <SectionLabel color={theme.accent.purpleLight}>recado</SectionLabel>
-              <p className="mt-3 text-lg leading-8 text-[#1B2A4A]">
-                Faço trabalhos que parecem ter sido cortados, pregados e remontados à mão — com sentimento em cada canto.
+              <p className="mt-3 text-lg leading-8 text-[var(--text-primary)]">
+                Cada arte é pensada para comunicar de verdade — do post ao material de marca — sempre com capricho no detalhe.
               </p>
             </TiltCard>
           </div>
@@ -285,13 +285,13 @@ function Home() {
 
         <section id="portfolio" className="rounded-[1.8rem] border border-white/10 bg-[linear-gradient(135deg,rgba(0,194,209,0.16)_0%,rgba(143,227,136,0.14)_100%)] p-6 shadow-[0_0_40px_rgba(0,194,209,0.10)] backdrop-blur-xl">
           <div className="flex items-center gap-2">
-            <svg viewBox="0 0 60 60" className="h-8 w-8 text-[#1B2A4A]" aria-hidden="true">
+            <svg viewBox="0 0 60 60" className="h-8 w-8 text-[var(--text-primary)]" aria-hidden="true">
               <path d="M17 15h26" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
               <path d="M20 24h20" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
               <path d="M21 33h18" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
               <path d="M24 42h12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
             </svg>
-            <SectionLabel color={theme.accent.purpleLight}>trabalhos selecionados</SectionLabel>
+            <SectionLabel color={theme.accent.purpleLight}>meus trabalhos</SectionLabel>
           </div>
           <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project, index) => (

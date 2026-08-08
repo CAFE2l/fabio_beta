@@ -16,7 +16,7 @@ export default function ProjectPage() {
   if (!project) {
     return (
       <div className="flex min-h-screen items-center justify-center p-4">
-        <p className="font-['Caveat'] text-2xl text-[#1B2A4A]">Projeto não encontrado.</p>
+        <p className="font-['Comic_Sans_MS','Comic_Sans',cursive] text-2xl text-[var(--text-primary)]">Projeto não encontrado.</p>
       </div>
     )
   }
@@ -35,7 +35,7 @@ export default function ProjectPage() {
         {/* back link */}
         <Link
           to="/"
-          className="mb-6 inline-flex items-center gap-2 font-['Caveat'] text-xl text-[#1B2A4A] hover:underline underline-offset-4"
+          className="mb-6 inline-flex items-center gap-2 font-['Comic_Sans_MS','Comic_Sans',cursive] text-xl text-[var(--text-primary)] hover:underline underline-offset-4"
           style={{ textShadow: '0 0 14px rgba(59,130,246,0.5)' }}
         >
           <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -68,25 +68,25 @@ export default function ProjectPage() {
               <div>
                 <motion.p
                   layoutId={`subtitle-${project.slug}`}
-                  className="font-['Caveat'] text-xl text-[var(--accent-purple-light)]"
+                  className="font-['Comic_Sans_MS','Comic_Sans',cursive] text-xl text-[var(--accent-purple-light)]"
                 >
                   {project.subtitle}
                 </motion.p>
                 <motion.h1
                   layoutId={`title-${project.slug}`}
-                  className="mt-1 font-['Archivo_Black'] text-4xl uppercase leading-tight tracking-wide text-[#1B2A4A] sm:text-5xl"
+                  className="mt-1 font-['Archivo_Black'] text-4xl uppercase leading-tight tracking-wide text-[var(--text-primary)] sm:text-5xl"
                 >
                   {project.title}
                 </motion.h1>
               </div>
-              <span className="font-['Caveat'] text-2xl text-[#1B2A4A] opacity-80">{project.year}</span>
+              <span className="font-['Comic_Sans_MS','Comic_Sans',cursive] text-2xl text-[var(--text-secondary)]">{project.year}</span>
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-white/10 bg-[linear-gradient(135deg,rgba(0,194,209,0.16)_0%,rgba(143,227,136,0.12)_100%)] px-3 py-1 text-xs uppercase tracking-widest text-[#2a3b59]"
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-widest text-[var(--text-secondary)]"
                 >
                   {tag}
                 </span>
@@ -108,7 +108,7 @@ export default function ProjectPage() {
             <path d="M10 30 Q30 8 50 30 Q30 52 10 30Z" stroke={theme.accent.purple} strokeWidth="2.5" fill="none" strokeLinecap="round" />
             <path d="M20 30 Q30 18 40 30 Q30 42 20 30Z" stroke={theme.accent.blue} strokeWidth="2" fill="none" strokeLinecap="round" />
           </svg>
-          <p className="text-lg leading-8 text-[#2a3b59] sm:text-xl">{project.description}</p>
+          <p className="text-lg leading-8 text-[var(--text-primary)] sm:text-xl">{project.description}</p>
         </motion.div>
 
         {/* navegação entre projetos */}
@@ -123,7 +123,7 @@ export default function ProjectPage() {
               <Link
                 key={p.slug}
                 to={`/projeto/${p.slug}`}
-                className="rounded-[1rem] border border-white/10 bg-[linear-gradient(135deg,rgba(0,194,209,0.16)_0%,rgba(143,227,136,0.14)_100%)] px-5 py-3 font-['Caveat'] text-lg text-[#1B2A4A] backdrop-blur-xl transition-shadow hover:shadow-[0_0_25px_rgba(0,194,209,0.35)]"
+                className="rounded-[1rem] border border-white/10 bg-white/5 px-5 py-3 font-['Comic_Sans_MS','Comic_Sans',cursive] text-lg text-[var(--text-primary)] backdrop-blur-xl transition-shadow hover:shadow-[0_0_25px_rgba(59,130,246,0.35)]"
                 style={{
                   boxShadow: `0 0 18px ${i % 2 === 0 ? 'rgba(59,130,246,0.15)' : 'rgba(139,61,255,0.15)'}`,
                 }}

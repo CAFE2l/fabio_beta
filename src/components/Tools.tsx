@@ -18,7 +18,7 @@ interface ToolCardProps {
   children: ReactNode
 }
 
-function ToolCard({ name, color, delay, children }: ToolCardProps) {
+function ToolCardContent({ color, delay, children, name }: ToolCardProps) {
   const { rawX, rawY } = useTilt()
 
   // paralaxe do logo — direção oposta ao tilt, levemente à frente do card
@@ -28,19 +28,7 @@ function ToolCard({ name, color, delay, children }: ToolCardProps) {
   const glowBg = `radial-gradient(ellipse 70% 60% at 50% 100%, ${color} 0%, transparent 70%)`
 
   return (
-    <TiltCard
-      glowColor={color}
-      intensity={10}
-      scaleOnHover={1.04}
-      delay={delay}
-      once={false}
-      className="flex min-h-[300px] flex-col items-center justify-center px-8 py-12"
-      style={{
-        borderRadius: '24px',
-        background: 'linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05))',
-        borderColor: 'rgba(255,255,255,0.15)',
-      }}
-    >
+    <>
       {/* brilho sutil da borda na cor do LED (~20%) */}
       <motion.div
         className="pointer-events-none absolute inset-0 rounded-[24px]"
@@ -83,11 +71,33 @@ function ToolCard({ name, color, delay, children }: ToolCardProps) {
           className="flex flex-col items-center"
         >
           {children}
-          <span className="mt-6 text-xs font-medium uppercase tracking-[0.35em] text-[#1B2A4A]">
+          <span className="mt-6 text-xs font-medium uppercase tracking-[0.35em] text-[var(--text-primary)]">
             {name}
           </span>
         </motion.div>
       </div>
+    </>
+  )
+}
+
+function ToolCard({ name, color, delay, children }: ToolCardProps) {
+  return (
+    <TiltCard
+      glowColor={color}
+      intensity={10}
+      scaleOnHover={1.04}
+      delay={delay}
+      once={false}
+      className="flex min-h-[300px] flex-col items-center justify-center px-8 py-12"
+      style={{
+        borderRadius: '24px',
+        background: 'linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05))',
+        borderColor: 'rgba(255,255,255,0.15)',
+      }}
+    >
+      <ToolCardContent color={color} delay={delay} name={name}>
+        {children}
+      </ToolCardContent>
     </TiltCard>
   )
 }
@@ -163,7 +173,7 @@ export default function Tools() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.4 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="text-center font-['Caveat'] text-3xl text-[#1B2A4A] sm:text-4xl"
+          className="text-center font-['Comic_Sans_MS','Comic_Sans',cursive] text-3xl text-[var(--text-primary)] sm:text-4xl"
           style={{ textShadow: '0 0 20px rgba(139,61,255,0.4)' }}
         >
           as ferramentas que eu uso
