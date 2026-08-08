@@ -5,7 +5,7 @@ import { projects } from '../data/projects';
 import './ProjectPage.css';
 
 const ProjectPage = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
   const projectIndex = projects.findIndex((p) => p.slug === slug);
 
