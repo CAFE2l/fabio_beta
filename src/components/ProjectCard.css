@@ -10,6 +10,8 @@
   display: block;
   text-decoration: none;
   color: inherit;
+  position: relative;
+  z-index: 1;
 }
 
 .project-card-inner {
@@ -53,6 +55,7 @@
   max-height: 350px;
   object-fit: contain;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0;
 }
 
 .project-image-overlay {
@@ -196,15 +199,15 @@
 
 .project-glow {
   position: absolute;
-  inset: -2px;
+  inset: -4px;
   background: linear-gradient(
     135deg,
     rgba(74, 144, 164, 0.3) 0%,
     rgba(91, 164, 164, 0.2) 50%,
     rgba(74, 144, 164, 0.3) 100%
   );
-  border-radius: 22px;
-  filter: blur(20px);
+  border-radius: 24px;
+  filter: blur(24px);
   opacity: 0;
   transition: all 0.3s ease;
   pointer-events: none;

@@ -1,10 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import './ProjectCard.css';
 
 const ProjectCard = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const cardRef = useRef(null);
 
   const mouseX = useMotionValue(0);
@@ -13,8 +15,21 @@ const ProjectCard = ({ project, index }) => {
   const rotateX = useTransform(mouseY, [-0.5, 0.5], [-8, 8]);
   const rotateY = useTransform(mouseX, [-0.5, 0.5], [8, -8]);
 
+  useEffect(() => {
+    // Detect touch device
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    
+    // Detect prefers-reduced-motion
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    const handleChange = (e) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
   const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
+    if (!cardRef.current || isTouchDevice || prefersReducedMotion) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -35,6 +50,8 @@ const ProjectCard = ({ project, index }) => {
     stiffness: 700,
   };
 
+  const shouldUse3D = !isTouchDevice && !prefersReducedMotion;
+
   return (
     <motion.div
       className="project-card"
@@ -51,19 +68,29 @@ const ProjectCard = ({ project, index }) => {
         handleMouseLeave();
       }}
     >
+      {/* Dynamic Glow - Outside overflow */}
+      <motion.div 
+        className="project-glow"
+        animate={{ 
+          opacity: isHovered ? 0.6 : 0,
+          scale: isHovered ? 1.1 : 1
+        }}
+        transition={{ duration: 0.3 }}
+      />
+
       <Link to={`/project/${project.slug}`} className="project-card-link">
         <motion.div
           ref={cardRef}
           className="project-card-inner"
           style={{
-            rotateX: useSpring(rotateX, springConfig),
-            rotateY: useSpring(rotateY, springConfig),
+            rotateX: shouldUse3D ? useSpring(rotateX, springConfig) : 0,
+            rotateY: shouldUse3D ? useSpring(rotateY, springConfig) : 0,
             transformStyle: "preserve-3d",
           }}
           onMouseMove={handleMouseMove}
           whileHover={{ 
-            scale: 1.02,
-            y: -8
+            scale: shouldUse3D ? 1.02 : 1.01,
+            y: shouldUse3D ? -8 : -4
           }}
           transition={{ 
             type: "spring", 
@@ -80,7 +107,7 @@ const ProjectCard = ({ project, index }) => {
               src={project.image}
               alt={project.title}
               className="project-image"
-              whileHover={{ scale: 1.05 }}
+              whileHover={shouldUse3D ? { scale: 1.05 } : { scale: 1.02 }}
               transition={{ duration: 0.3 }}
             />
             <div className="project-image-overlay" />
@@ -135,16 +162,6 @@ const ProjectCard = ({ project, index }) => {
             animate={{ 
               opacity: isHovered ? 0.4 : 0,
               backdropFilter: isHovered ? 'blur(12px)' : 'blur(0px)'
-            }}
-            transition={{ duration: 0.3 }}
-          />
-
-          {/* Dynamic Glow */}
-          <motion.div 
-            className="project-glow"
-            animate={{ 
-              opacity: isHovered ? 0.6 : 0,
-              scale: isHovered ? 1.1 : 1
             }}
             transition={{ duration: 0.3 }}
           />

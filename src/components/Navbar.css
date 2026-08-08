@@ -1,15 +1,17 @@
 .cartoon-navbar {
   position: fixed;
-  top: 24px;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 9999;
-  margin-bottom: 48px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 100%);
+  border-bottom: 1px solid rgba(44, 62, 80, 0.08);
+  padding: 16px 0;
   transition: box-shadow 0.3s ease;
 }
 
 .cartoon-navbar.scrolled {
-  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.15);
+  box-shadow: 0 4px 20px rgba(44, 62, 80, 0.12);
 }
 
 .navbar-wrapper {
@@ -19,10 +21,9 @@
 }
 
 .navbar-panel {
-  background: linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 100%);
-  border: 2px solid rgba(44, 62, 80, 0.12);
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.08);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
   overflow: visible;
   position: relative;
 }
