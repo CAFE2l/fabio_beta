@@ -1,26 +1,26 @@
-// Design tokens centralizados — tema futurista glass (azul elétrico + roxo)
+// Design tokens centralizados — paleta alegre, inspirada em ilustrações cartoon.
 export const theme = {
   bg: {
-    primary: '#0B1120',
-    primaryAlt: '#0F172A',
-    surface: 'linear-gradient(135deg, rgba(0,194,209,0.22) 0%, rgba(143,227,136,0.18) 100%)',
-    surfaceStrong: 'linear-gradient(135deg, rgba(0,194,209,0.30) 0%, rgba(143,227,136,0.24) 100%)',
+    primary: '#FFF8EA',
+    primaryAlt: '#FFF2D8',
+    surface: 'linear-gradient(135deg, #FFFFFF 0%, #FFF5DF 100%)',
+    surfaceStrong: 'linear-gradient(135deg, #FFFDF7 0%, #FFEBC5 100%)',
   },
   accent: {
-    blue: '#3B82F6',
-    blueDeep: '#2563EB',
-    purple: '#8B3DFF',
-    purpleLight: '#A855F7',
+    blue: '#1697A6',
+    blueDeep: '#117783',
+    purple: '#7B5BB7',
+    purpleLight: '#9B78D2',
   },
   text: {
-    primary: '#F1F5F9',
-    secondary: '#94A3B8',
-    muted: '#64748B',
+    primary: '#27344A',
+    secondary: '#5F6E7F',
+    muted: '#7D8997',
   },
   glass: {
-    border: 'rgba(255,255,255,0.12)',
-    borderStrong: 'rgba(255,255,255,0.18)',
-    blur: '20px',
+    border: 'rgba(39,52,74,0.14)',
+    borderStrong: 'rgba(39,52,74,0.2)',
+    blur: '0px',
   },
 } as const
 

@@ -1,21 +1,21 @@
 import { motion } from 'framer-motion'
 import TiltCard from './TiltCard'
-import whatsappIcon from '../assets/imgs/Whatsapp.png'
+import instagramIcon from '../assets/imgs/Instagram.png'
 import linkedinIcon from '../assets/imgs/LinkedIn.png'
 import gmailIcon from '../assets/imgs/Gmail.png'
 
 // ─── SUBSTITUIR_AQUI ────────────────────────────────────────────────────────
-const WA_LINK = 'https://wa.me/5541XXXXXXXXX'       // SUBSTITUIR_AQUI: número WhatsApp
+const IG_LINK = 'https://instagram.com/SEU-USUARIO'   // SUBSTITUIR_AQUI: perfil Instagram
 const LI_LINK = 'https://linkedin.com/in/SEU-USUARIO' // SUBSTITUIR_AQUI: perfil LinkedIn
 const MAIL_LINK = 'mailto:seuemail@gmail.com'         // SUBSTITUIR_AQUI: endereço de e-mail
 // ────────────────────────────────────────────────────────────────────────────
 
 const contacts = [
   {
-    label: 'WhatsApp',
-    icon: whatsappIcon,
-    href: WA_LINK,
-    glow: '#25D366',
+    label: 'Instagram',
+    icon: instagramIcon,
+    href: IG_LINK,
+    glow: '#C13584',
     external: true,
   },
   {
@@ -48,7 +48,6 @@ export default function Footer() {
         >
           <p
             className="font-['Comic_Sans_MS','Comic_Sans',cursive] text-4xl sm:text-5xl text-[var(--text-primary)]"
-            style={{ textShadow: '0 0 24px rgba(59,130,246,0.45)' }}
           >
             vamos conversar?
           </p>
@@ -67,18 +66,7 @@ export default function Footer() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: i * 0.12 }}
             >
-              {/* glow LED pulsante na base — mesma lógica da seção Ferramentas */}
               <div className="relative">
-                <motion.div
-                  animate={{ opacity: [0.35, 0.55, 0.35] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.8 }}
-                  className="pointer-events-none absolute -bottom-3 left-1/2 -translate-x-1/2 h-8 w-3/4 rounded-full"
-                  style={{
-                    background: `radial-gradient(ellipse at center, ${c.glow}55 0%, transparent 70%)`,
-                    filter: 'blur(10px)',
-                  }}
-                />
-
                 <a
                   href={c.href}
                   {...(c.external
@@ -130,7 +118,7 @@ export default function Footer() {
             <path d="M12 30h36" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
           </svg>
           <p className="text-sm text-[var(--text-secondary)] ">
-            © 2026 Fábio Henrique Borges Filho — feito com café e muita criatividade no Canva
+            © 2026 Fábio Henrique Borges Filho — feito com café e muita criatividade
           </p>
         </div>
       </div>
