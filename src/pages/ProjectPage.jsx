@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Image } from 'lucide-react';
 import { projects } from '../data/projects';
 import './ProjectPage.css';
 
@@ -160,7 +161,7 @@ const ProjectPage = () => {
         >
           {prevProject && (
             <Link to={`/project/${prevProject.slug}`} className="project-nav-link project-nav-prev">
-              <span className="project-nav-arrow">←</span>
+              <span className="project-nav-icon project-nav-arrow" aria-hidden="true">←</span>
               <div className="project-nav-content">
                 <span className="project-nav-label">Anterior</span>
                 <span className="project-nav-title">{prevProject.title}</span>
@@ -169,8 +170,13 @@ const ProjectPage = () => {
           )}
 
           <Link to="/#projects" className="project-nav-link project-nav-center">
-            <span className="project-nav-icon">✦</span>
-            <span className="project-nav-label">Ver Todos</span>
+            <span className="project-nav-icon" aria-hidden="true">
+              <Image />
+            </span>
+            <div className="project-nav-content">
+              <span className="project-nav-label">Ver todos</span>
+              <span className="project-nav-title">Projetos</span>
+            </div>
           </Link>
 
           {nextProject && (
@@ -179,7 +185,7 @@ const ProjectPage = () => {
                 <span className="project-nav-label">Próximo</span>
                 <span className="project-nav-title">{nextProject.title}</span>
               </div>
-              <span className="project-nav-arrow">→</span>
+              <span className="project-nav-icon project-nav-arrow" aria-hidden="true">→</span>
             </Link>
           )}
         </motion.div>

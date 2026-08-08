@@ -57,7 +57,6 @@
 .project-hero-image-container {
   position: relative;
   width: 100%;
-  max-height: 500px;
   overflow: hidden;
   background: linear-gradient(135deg, #F5F5F5, #FAFAFA);
   border-radius: 20px;
@@ -69,8 +68,7 @@
 .project-hero-image {
   width: 100%;
   height: auto;
-  max-height: 500px;
-  object-fit: contain;
+  display: block;
 }
 
 .project-hero-overlay {
@@ -108,15 +106,9 @@
 }
 
 .project-hero-year {
-  padding: 8px 16px;
-  background: rgba(201, 166, 107, 0.15);
-  border: 1px solid rgba(201, 166, 107, 0.25);
-  border-radius: 12px;
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  color: #C9A66B;
-  text-transform: uppercase;
+  color: #8A9BAE;
   letter-spacing: 0.5px;
 }
 
@@ -195,6 +187,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-bottom: 48px;
+  align-items: stretch;
 }
 
 .project-nav-link {
@@ -202,6 +195,7 @@
   align-items: center;
   gap: 16px;
   padding: 24px;
+  min-height: 120px;
   background: linear-gradient(135deg, rgba(250, 247, 242, 0.95), rgba(245, 240, 230, 0.95));
   border: 1px solid rgba(44, 62, 80, 0.1);
   border-radius: 16px;
@@ -226,13 +220,15 @@
 }
 
 .project-nav-center {
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
 .project-nav-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   font-size: 24px;
   color: #4A90A4;
   transition: transform 0.3s ease;
@@ -267,9 +263,24 @@
 }
 
 .project-nav-icon {
-  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   color: #C9A66B;
-  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.project-nav-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.project-nav-icon.project-nav-arrow {
+  font-size: 20px;
+  line-height: 1;
+  color: #4A90A4;
 }
 
 .project-page-error {
@@ -301,12 +312,7 @@
   }
 
   .project-hero-image-container {
-    max-height: 350px;
     border-radius: 16px;
-  }
-
-  .project-hero-image {
-    max-height: 350px;
   }
 
   .project-hero-title {

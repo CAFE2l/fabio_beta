@@ -68,17 +68,17 @@ const ProjectCard = ({ project, index }) => {
         handleMouseLeave();
       }}
     >
-      {/* Dynamic Glow - Outside overflow */}
-      <motion.div 
-        className="project-glow"
-        animate={{ 
-          opacity: isHovered ? 0.6 : 0,
-          scale: isHovered ? 1.1 : 1
-        }}
-        transition={{ duration: 0.3 }}
-      />
-
       <Link to={`/project/${project.slug}`} className="project-card-link">
+        {/* Dynamic Glow - Outside overflow */}
+        <motion.div 
+          className="project-glow"
+          animate={{ 
+            opacity: isHovered ? 0.6 : 0,
+            scale: isHovered ? 1.1 : 1
+          }}
+          transition={{ duration: 0.3 }}
+        />
+
         <motion.div
           ref={cardRef}
           className="project-card-inner"

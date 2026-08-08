@@ -107,6 +107,11 @@ button {
   padding-top: 90px;
 }
 
+section[id],
+footer[id] {
+  scroll-margin-top: 110px;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 0 16px;
