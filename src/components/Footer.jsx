@@ -1,40 +1,34 @@
 import React from 'react';
 import './Footer.css';
+import profileImage from '../../Trabalhos/img_violada.jpeg';
 import instagramIcon from '../../icons/Instagram.png';
 import linkedinIcon from '../../icons/LinkedIn.png';
 import gmailIcon from '../../icons/Gmail.png';
-import whatsappIcon from '../../icons/Whatsapp.png';
 
 const Footer = () => {
   const socialLinks = [
     {
       name: 'Instagram',
       icon: instagramIcon,
-      href: 'https://instagram.com/fabioborges',
-      color: '#E1306C',
+      href: 'https://instagram.com',
+      color: '#C9A66B',
     },
     {
       name: 'LinkedIn',
       icon: linkedinIcon,
-      href: 'https://linkedin.com/in/fabioborges',
-      color: '#0A66C2',
-    },
-    {
-      name: 'WhatsApp',
-      icon: whatsappIcon,
-      href: 'https://wa.me/5541999999999',
-      color: '#25D366',
+      href: 'https://linkedin.com',
+      color: '#4A90A4',
     },
     {
       name: 'Email',
       icon: gmailIcon,
       href: 'mailto:contato@fabioborges.com',
-      color: '#EA4335',
+      color: '#C9A66B',
     },
   ];
 
   return (
-    <footer className="cartoon-footer">
+    <footer id="footer" className="cartoon-footer">
       <div className="container footer-container">
         <div className="footer-decoration">
           <div className="decoration-star star-1">✦</div>
@@ -79,7 +73,11 @@ const Footer = () => {
 
           <div className="footer-brand">
             <div className="footer-brand-avatar">
-              <span className="footer-brand-initials">FB</span>
+              <img 
+                src={profileImage} 
+                alt="Fábio Borges"
+                className="footer-brand-avatar-image"
+              />
             </div>
             <div className="footer-brand-text">
               <span className="footer-brand-name">Fábio Borges</span>

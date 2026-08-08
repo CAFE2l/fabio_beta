@@ -21,7 +21,8 @@
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: rgba(59, 130, 246, 0.08);
+  background: rgba(74, 144, 164, 0.1);
+  border: 1px solid rgba(74, 144, 164, 0.2);
   border-radius: 24px;
   align-self: flex-start;
 }
@@ -30,13 +31,13 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--accent-blue);
+  background: #4A90A4;
 }
 
 .hero-badge-text {
   font-size: 14px;
   font-weight: 500;
-  color: var(--accent-blue);
+  color: #4A90A4;
 }
 
 .hero-title {
@@ -49,12 +50,10 @@
 
 .hero-card {
   padding: 32px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(250, 247, 242, 0.9));
-  border: 3px solid #1A2E4A;
-  border-radius: 24px;
-  box-shadow: 
-    0 8px 32px rgba(26, 46, 74, 0.12),
-    0 0 0 4px rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, rgba(250, 247, 242, 0.95), rgba(245, 240, 230, 0.95));
+  border: 1px solid rgba(44, 62, 80, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.06);
   position: relative;
   overflow: visible;
   animation: cardFloat 6s ease-in-out infinite;
@@ -62,7 +61,7 @@
 
 @keyframes cardFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-2px); }
 }
 
 .hero-card-header {
@@ -109,9 +108,9 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  border-radius: 20px;
-  border: 2px solid rgba(59, 130, 246, 0.1);
-  box-shadow: 0 8px 32px rgba(26, 46, 74, 0.12);
+  border-radius: 16px;
+  border: 1px solid rgba(44, 62, 80, 0.08);
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.08);
 }
 
 @media (max-width: 1024px) {

@@ -16,12 +16,10 @@
 .skills-radar-card,
 .skills-tools-card {
   padding: 32px;
-  background: linear-gradient(135deg, #FFFFFF 0%, #FAF7F2 100%);
-  border: 3px solid #1A2E4A;
-  border-radius: 24px;
-  box-shadow: 
-    0 8px 32px rgba(26, 46, 74, 0.12),
-    0 0 0 4px rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, rgba(250, 247, 242, 0.95), rgba(245, 240, 230, 0.95));
+  border: 1px solid rgba(44, 62, 80, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.06);
   position: relative;
   overflow: visible;
   animation: cardFloat 6s ease-in-out infinite;
@@ -37,7 +35,7 @@
 
 @keyframes cardFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-2px); }
 }
 
 .skills-card-header {
@@ -49,6 +47,15 @@
   font-size: 20px;
   display: block;
   margin-bottom: 8px;
+  color: #5BA4A4;
+}
+
+.skills-label-blue {
+  color: #4A90A4;
+}
+
+.skills-label-warm {
+  color: #C9A66B;
 }
 
 .skills-title {
@@ -63,6 +70,10 @@
   width: 100%;
 }
 
+.skills-radar-card:hover {
+  border-color: rgba(74, 144, 164, 0.15);
+}
+
 .skills-tools {
   display: flex;
   flex-wrap: wrap;
@@ -72,9 +83,9 @@
 
 .skills-tool-tag {
   padding: 12px 20px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(230,247,242,0.95));
-  border: 2px solid #1A2E4A;
-  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(250, 247, 242, 0.95), rgba(245, 240, 230, 0.95));
+  border: 1px solid rgba(44, 62, 80, 0.1);
+  border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: visible;
@@ -83,12 +94,12 @@
 .skills-tool-tag::before {
   content: '';
   position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
-  border: 2px solid rgba(59, 130, 246, 0.3);
-  border-radius: 20px;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 1px solid rgba(74, 144, 164, 0.2);
+  border-radius: 14px;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -100,13 +111,13 @@
 .skills-tool-tag span {
   font-size: 15px;
   font-weight: 600;
-  color: #1A2E4A;
+  color: #2C3E50;
 }
 
 .skills-tool-tag:hover {
-  transform: translateY(-3px) rotate(-2deg);
-  box-shadow: 0 8px 24px rgba(26, 46, 74, 0.15);
-  border-color: #3B82F6;
+  transform: translateY(-2px) rotate(-0.5deg);
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.1);
+  border-color: rgba(74, 144, 164, 0.3);
 }
 
 @media (max-width: 768px) {

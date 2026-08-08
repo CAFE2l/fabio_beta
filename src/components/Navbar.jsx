@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import profileImage from '../../Trabalhos/img_violada.jpeg';
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -9,7 +10,7 @@ const Navbar = () => {
     { name: 'Sobre', href: '#about', id: 'about' },
     { name: 'Habilidades', href: '#skills', id: 'skills' },
     { name: 'Trabalhos', href: '#projects', id: 'projects' },
-    { name: 'Contato', href: '#contact', id: 'contact' },
+    { name: 'Contato', href: '#footer', id: 'footer' },
   ];
 
   useEffect(() => {
@@ -50,7 +51,11 @@ const Navbar = () => {
         <div className="navbar-content">
           <div className="navbar-brand">
             <div className="brand-avatar">
-              <span className="brand-initials">FB</span>
+              <img 
+                src={profileImage} 
+                alt="Fábio Borges"
+                className="navbar-avatar-image"
+              />
             </div>
             <div className="brand-text">
               <span className="brand-name">Fábio Borges</span>

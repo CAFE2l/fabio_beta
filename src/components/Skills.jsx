@@ -21,21 +21,13 @@ const Skills = () => {
 
   const tools = ['Canva'];
 
-  const theme = {
-    accent: {
-      blue: '#3B82F6',
-      purple: '#8B5CF6',
-      purpleLight: '#A78BFA',
-    },
-  };
-
   return (
     <section id="skills" className="skills">
       <div className="container skills-container">
         <div className="skills-grid">
           <div className="skills-radar-card">
             <div className="skills-card-header">
-              <span className="skills-label" style={{ color: theme.accent.blue }}>
+              <span className="skills-label skills-label-blue">
                 habilidades
               </span>
               <h2 className="skills-title">Um radar de pontos fortes.</h2>
@@ -52,16 +44,16 @@ const Skills = () => {
                   <Radar
                     name="Skills"
                     dataKey="value"
-                    stroke={theme.accent.blue}
+                    stroke="#4A90A4"
                     strokeWidth={2}
-                    fill={theme.accent.blue}
+                    fill="#4A90A4"
                     fillOpacity={0.3}
                   />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: 'rgba(255,255,255,0.95)',
+                      backgroundColor: 'rgba(250, 247, 242, 0.95)',
                       borderRadius: '12px',
-                      border: '1px solid rgba(26,46,74,0.14)',
+                      border: '1px solid rgba(44, 62, 80, 0.1)',
                       fontFamily: 'Inter, sans-serif',
                     }}
                   />
@@ -72,7 +64,7 @@ const Skills = () => {
 
           <div className="skills-tools-card">
             <div className="skills-card-header">
-              <span className="skills-label" style={{ color: theme.accent.purple }}>
+              <span className="skills-label skills-label-warm">
                 ferramentas
               </span>
               <h2 className="skills-title">O que eu uso no dia a dia.</h2>
@@ -82,10 +74,6 @@ const Skills = () => {
                 <div
                   key={tool}
                   className="skills-tool-tag"
-                  style={{
-                    rotate: `${(index % 2 === 0 ? 1 : -1) * 2}deg`,
-                    boxShadow: `0 0 16px ${theme.accent.blue}22`,
-                  }}
                 >
                   <span>{tool}</span>
                 </div>

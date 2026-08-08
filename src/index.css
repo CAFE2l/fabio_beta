@@ -5,28 +5,35 @@
 @import './components/About.css';
 @import './components/Skills.css';
 @import './components/Projects.css';
-@import './components/Contact.css';
+@import './components/ProjectCard.css';
 @import './components/Footer.css';
 @import './pages/ProjectPage.css';
 
 :root {
-  --bg-primary: #FDF8F3;
-  --bg-surface: #FFFFFF;
-  --bg-surface-alt: #FAF7F2;
+  /* Vintage/Editorial Palette */
+  --bg-primary: #F5F0E6; /* Bege claro papel */
+  --bg-surface: #FAF7F2; /* Creme suave */
+  --bg-surface-alt: #F0EAE0; /* Bege médio */
   
-  --text-primary: #1A2E4A;
-  --text-secondary: #4A5F7A;
-  --text-muted: #7A8FA5;
+  --text-primary: #2C3E50; /* Azul-marinho escuro */
+  --text-secondary: #546E7A; /* Azul desaturado */
+  --text-muted: #7A8FA5; /* Cinza quente */
   
-  --accent-blue: #3B82F6;
-  --accent-purple: #8B5CF6;
-  --accent-teal: #14B8A6;
+  /* Acentos vintage - sem roxo */
+  --accent-blue: #4A90A4; /* Azul vintage */
+  --accent-teal: #5BA4A4; /* Verde azulado */
+  --accent-warm: #C9A66B; /* Marrom quente */
+  --accent-cream: #E8D5B7; /* Bege escuro */
   
-  --border-light: rgba(26, 46, 74, 0.08);
-  --border-medium: rgba(26, 46, 74, 0.12);
+  /* Bordas sutis */
+  --border-light: rgba(44, 62, 80, 0.08);
+  --border-medium: rgba(44, 62, 80, 0.12);
+  --border-warm: rgba(201, 166, 107, 0.15);
   
-  --shadow-soft: 0 4px 20px rgba(26, 46, 74, 0.06);
-  --shadow-medium: 0 8px 30px rgba(26, 46, 74, 0.08);
+  /* Sombras vintage */
+  --shadow-soft: 0 4px 16px rgba(44, 62, 80, 0.08);
+  --shadow-medium: 0 8px 24px rgba(44, 62, 80, 0.12);
+  --shadow-warm: 0 4px 16px rgba(201, 166, 107, 0.1);
 }
 
 * {
@@ -41,7 +48,7 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--bg-primary);
+  background-color: #F5F0E6;
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
@@ -54,7 +61,7 @@ body {
 h1, h2, h3, h4 {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #2C3E50;
 }
 
 a {

@@ -1,8 +1,8 @@
 .cartoon-footer {
   padding: 64px 0 32px;
   margin-top: 64px;
-  background: linear-gradient(135deg, #FDF8F3 0%, #FAF7F2 100%);
-  border-top: 3px solid #1A2E4A;
+  background: linear-gradient(135deg, #F5F0E6 0%, #FAF7F2 100%);
+  border-top: 1px solid rgba(44, 62, 80, 0.08);
   position: relative;
 }
 
@@ -13,18 +13,18 @@
 
 .footer-decoration {
   position: absolute;
-  top: -16px;
-  left: -16px;
-  right: -16px;
-  bottom: -16px;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
   pointer-events: none;
 }
 
 .decoration-star {
   position: absolute;
-  font-size: 24px;
-  color: #8B5CF6;
-  opacity: 0.5;
+  font-size: 18px;
+  color: #C9A66B;
+  opacity: 0.4;
   animation: starFloat 4s ease-in-out infinite;
 }
 
@@ -55,11 +55,11 @@
 @keyframes starFloat {
   0%, 100% { 
     transform: translateY(0) rotate(0deg); 
-    opacity: 0.5;
+    opacity: 0.4;
   }
   50% { 
-    transform: translateY(-12px) rotate(15deg); 
-    opacity: 1;
+    transform: translateY(-8px) rotate(10deg); 
+    opacity: 0.7;
   }
 }
 
@@ -74,18 +74,16 @@
 .footer-cta {
   text-align: center;
   padding: 48px;
-  background: linear-gradient(135deg, #FFFFFF 0%, #FAF7F2 100%);
-  border: 3px solid #1A2E4A;
-  border-radius: 24px;
-  box-shadow: 
-    0 8px 32px rgba(26, 46, 74, 0.12),
-    0 0 0 4px rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, rgba(250, 247, 242, 0.95), rgba(245, 240, 230, 0.95));
+  border: 1px solid rgba(44, 62, 80, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.06);
   animation: cardFloat 6s ease-in-out infinite;
 }
 
 @keyframes cardFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-2px); }
 }
 
 .footer-badge {
@@ -93,8 +91,8 @@
   align-items: center;
   gap: 8px;
   padding: 10px 20px;
-  background: rgba(139, 92, 246, 0.1);
-  border: 2px solid rgba(139, 92, 246, 0.3);
+  background: rgba(74, 144, 164, 0.1);
+  border: 1px solid rgba(74, 144, 164, 0.2);
   border-radius: 24px;
   margin-bottom: 24px;
 }
@@ -103,33 +101,33 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #8B5CF6;
+  background: #4A90A4;
   animation: badgePulse 2s ease-in-out infinite;
 }
 
 @keyframes badgePulse {
   0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.2); opacity: 0.7; }
+  50% { transform: scale(1.15); opacity: 0.8; }
 }
 
 .footer-badge-text {
   font-family: 'Comic Sans MS', 'Comic Sans', cursive;
   font-size: 16px;
   font-weight: 600;
-  color: #8B5CF6;
+  color: #4A90A4;
 }
 
 .footer-title {
   font-size: 42px;
   line-height: 1.1;
   margin-bottom: 16px;
-  color: #1A2E4A;
+  color: #2C3E50;
 }
 
 .footer-description {
   font-size: 18px;
   line-height: 1.7;
-  color: #4A5F7A;
+  color: #546E7A;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -146,16 +144,14 @@
   align-items: center;
   gap: 12px;
   padding: 24px 16px;
-  background: linear-gradient(135deg, #FFFFFF 0%, #FAF7F2 100%);
-  border: 3px solid #1A2E4A;
-  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(250, 247, 242, 0.95), rgba(245, 240, 230, 0.95));
+  border: 1px solid rgba(44, 62, 80, 0.08);
+  border-radius: 16px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   color: inherit;
   position: relative;
-  box-shadow: 
-    0 4px 16px rgba(26, 46, 74, 0.08),
-    0 0 0 3px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
   animation: cardFloat 6s ease-in-out infinite;
 }
 
@@ -167,26 +163,24 @@
 .social-icon-card::before {
   content: '';
   position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
-  border: 2px solid var(--icon-color);
-  border-radius: 24px;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 1px solid var(--icon-color);
+  border-radius: 18px;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .social-icon-card:hover::before {
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
 .social-icon-card:hover {
-  transform: translateY(-6px) rotate(-2deg);
-  box-shadow: 
-    0 12px 32px rgba(26, 46, 74, 0.15),
-    0 0 0 3px var(--icon-color);
-  border-color: var(--icon-color);
+  transform: translateY(-4px) rotate(-0.5deg);
+  box-shadow: 0 8px 20px rgba(44, 62, 80, 0.1);
+  border-color: rgba(74, 144, 164, 0.2);
 }
 
 .social-icon-container {
@@ -195,16 +189,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.8);
-  border: 2px solid rgba(26, 46, 74, 0.1);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(44, 62, 80, 0.08);
   border-radius: 16px;
   transition: all 0.3s ease;
 }
 
 .social-icon-card:hover .social-icon-container {
-  background: var(--icon-color);
-  border-color: var(--icon-color);
-  transform: scale(1.1) rotate(5deg);
+  background: rgba(74, 144, 164, 0.1);
+  border-color: rgba(74, 144, 164, 0.2);
+  transform: scale(1.05) rotate(3deg);
 }
 
 .social-icon-img {
@@ -215,13 +209,13 @@
 }
 
 .social-icon-card:hover .social-icon-img {
-  filter: brightness(1.2);
+  filter: brightness(1.1);
 }
 
 .social-icon-name {
   font-size: 14px;
   font-weight: 600;
-  color: #1A2E4A;
+  color: #2C3E50;
   text-align: center;
 }
 
@@ -231,12 +225,10 @@
   justify-content: center;
   gap: 16px;
   padding: 32px;
-  background: linear-gradient(135deg, #FFFFFF 0%, #FAF7F2 100%);
-  border: 3px solid #1A2E4A;
-  border-radius: 20px;
-  box-shadow: 
-    0 4px 16px rgba(26, 46, 74, 0.08),
-    0 0 0 3px rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, rgba(250, 247, 242, 0.95), rgba(245, 240, 230, 0.95));
+  border: 1px solid rgba(44, 62, 80, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
   animation: cardFloat 6s ease-in-out infinite;
   animation-delay: 1s;
 }
@@ -245,25 +237,26 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #3B82F6, #8B5CF6);
-  border: 3px solid #1A2E4A;
+  background: linear-gradient(135deg, #4A90A4, #5BA4A4);
+  border: 2px solid rgba(44, 62, 80, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 2px 8px rgba(74, 144, 164, 0.2);
+  overflow: hidden;
   animation: avatarPulse 3s ease-in-out infinite;
 }
 
 @keyframes avatarPulse {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  50% { transform: scale(1.03); }
 }
 
-.footer-brand-initials {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  color: white;
+.footer-brand-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .footer-brand-text {
@@ -276,7 +269,7 @@
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-size: 20px;
-  background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+  background: linear-gradient(135deg, #4A90A4, #5BA4A4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -291,9 +284,9 @@
 .footer-copyright {
   text-align: center;
   padding: 24px;
-  background: rgba(255, 255, 255, 0.5);
-  border: 2px solid rgba(26, 46, 74, 0.08);
-  border-radius: 16px;
+  background: rgba(250, 247, 242, 0.5);
+  border: 1px solid rgba(44, 62, 80, 0.06);
+  border-radius: 12px;
 }
 
 .footer-copyright p {
@@ -320,8 +313,7 @@
 
   .footer-cta {
     padding: 32px 24px;
-    border-radius: 20px;
-    border-width: 2px;
+    border-radius: 16px;
   }
 
   .footer-badge {
@@ -349,14 +341,12 @@
 
   .social-icon-card {
     padding: 20px 12px;
-    border-radius: 16px;
-    border-width: 2px;
+    border-radius: 14px;
   }
 
   .social-icon-container {
     width: 48px;
     height: 48px;
-    border-width: 2px;
   }
 
   .social-icon-img {
@@ -370,8 +360,7 @@
 
   .footer-brand {
     padding: 24px 20px;
-    border-radius: 16px;
-    border-width: 2px;
+    border-radius: 14px;
     flex-direction: column;
     gap: 12px;
   }
@@ -379,7 +368,6 @@
   .footer-brand-avatar {
     width: 48px;
     height: 48px;
-    border-width: 2px;
   }
 
   .footer-brand-initials {
@@ -397,7 +385,6 @@
   .footer-copyright {
     padding: 20px 16px;
     border-radius: 12px;
-    border-width: 2px;
   }
 
   .footer-copyright p {
@@ -405,7 +392,7 @@
   }
 
   .decoration-star {
-    font-size: 18px;
+    font-size: 14px;
   }
 }
 
