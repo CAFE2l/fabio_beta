@@ -8,11 +8,24 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { ArrowUpRight, Sparkles } from 'lucide-react';
 import canvaLogo from '../../Trabalhos/canva.png';
 import './Skills.css';
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay, ease: [0.25, 0.1, 0.25, 1] },
+  }),
+};
+
 const Skills = () => {
+  const radarRef = React.useRef(null);
+  const radarInView = useInView(radarRef, { once: true, margin: '-80px' });
+
   const skills = [
     { subject: 'Criação no Canva', value: 92, fullMark: 100 },
     { subject: 'Identidade Visual', value: 86, fullMark: 100 },
@@ -21,85 +34,109 @@ const Skills = () => {
     { subject: 'Tipografia', value: 80, fullMark: 100 },
   ];
 
-  const tools = [
-    {
-      name: 'Canva',
-      icon: <img src={canvaLogo} alt="Canva" className="skills-tool-icon-img" />,
-    },
-  ];
-
   return (
     <section id="skills" className="skills">
       <div className="container skills-container">
+        <motion.div
+          className="skills-heading"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+        >
+          <motion.span className="skills-eyebrow" variants={fadeUp}>
+            habilidades
+          </motion.span>
+          <motion.h2 className="skills-heading-title" variants={fadeUp} custom={0.05}>
+            O que eu sei fazer bem.
+          </motion.h2>
+        </motion.div>
+
         <div className="skills-grid">
-          <div className="skills-radar-card">
-            <div className="skills-card-header">
-              <span className="skills-label skills-label-blue">
-                habilidades
-              </span>
-              <h2 className="skills-title">Um radar de pontos fortes.</h2>
-            </div>
-            <div className="skills-radar">
+          <motion.div
+            ref={radarRef}
+            className="skills-radar-card"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+          >
+            <motion.div className="skills-card-header" variants={fadeUp}>
+              <span className="skills-label skills-label-blue">ponto forte</span>
+              <h3 className="skills-title">Um radar de pontos fortes.</h3>
+            </motion.div>
+            <motion.div className="skills-radar" variants={fadeUp} custom={0.1}>
               <ResponsiveContainer width="100%" height="100%">
-                <RadarChart cx="50%" cy="50%" outerRadius="75%" data={skills}>
-                  <PolarGrid stroke="rgba(26, 46, 74, 0.18)" strokeDasharray="3 3" />
+                <RadarChart cx="50%" cy="50%" outerRadius="72%" data={skills}>
+                  <PolarGrid stroke="rgba(44, 62, 80, 0.14)" strokeDasharray="3 3" />
                   <PolarAngleAxis
                     dataKey="subject"
-                    tick={{ fill: '#94A3B8', fontSize: 12, fontFamily: 'Inter, sans-serif' }}
+                    tick={{ fill: '#7A8FA5', fontSize: 11, fontFamily: 'Inter, sans-serif' }}
                   />
-                  <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} />
+                  <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
                   <Radar
                     name="Skills"
                     dataKey="value"
                     stroke="#4A90A4"
-                    strokeWidth={2}
+                    strokeWidth={2.5}
                     fill="#4A90A4"
-                    fillOpacity={0.3}
+                    fillOpacity={radarInView ? 0.32 : 0}
+                    isAnimationActive
+                    animationDuration={1400}
+                    animationBegin={radarInView ? 0 : 9999}
+                    dot={{ r: 3, fill: '#4A90A4', strokeWidth: 0 }}
                   />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: 'rgba(250, 247, 242, 0.95)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.96)',
                       borderRadius: '12px',
-                      border: '1px solid rgba(44, 62, 80, 0.1)',
+                      border: '1px solid rgba(44, 62, 80, 0.12)',
                       fontFamily: 'Inter, sans-serif',
+                      boxShadow: '0 8px 24px rgba(44, 62, 80, 0.12)',
                     }}
                   />
                 </RadarChart>
               </ResponsiveContainer>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="skills-tools-card">
-            <div className="skills-card-header">
-              <span className="skills-label skills-label-warm">
-                ferramentas
+          <motion.div
+            className="skills-tools-card"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+          >
+            <motion.div className="skills-card-header" variants={fadeUp}>
+              <span className="skills-label skills-label-warm">ferramenta</span>
+              <h3 className="skills-title">O que eu uso no dia a dia.</h3>
+            </motion.div>
+            <motion.a
+              href="https://www.canva.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="skills-tool-card"
+              variants={fadeUp}
+              custom={0.1}
+            >
+              <span className="skills-tool-icon">
+                <img src={canvaLogo} alt="" className="skills-tool-icon-img" />
               </span>
-              <h2 className="skills-title">O que eu uso no dia a dia.</h2>
-            </div>
-            <div className="skills-tools">
-              {tools.map((tool, index) => (
-                <motion.a
-                  key={tool.name}
-                  href="https://www.canva.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="skills-tool-card"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.1, duration: 0.3 }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    boxShadow: '0 8px 24px rgba(74, 144, 164, 0.2)'
-                  }}
-                >
-                  <div className="skills-tool-icon">
-                    {tool.icon}
-                  </div>
-                  <span className="skills-tool-name">{tool.name}</span>
-                </motion.a>
-              ))}
-            </div>
-          </div>
+              <span className="skills-tool-body">
+                <span className="skills-tool-name">
+                  Canva
+                  <ArrowUpRight className="skills-tool-arrow" aria-hidden="true" />
+                </span>
+                <span className="skills-tool-caption">
+                  Design e edição visual para redes, identidades e materiais completos.
+                </span>
+              </span>
+            </motion.a>
+
+            <motion.div className="skills-note" variants={fadeUp} custom={0.18}>
+              <Sparkles className="skills-note-icon" aria-hidden="true" />
+              <p>
+                Do rascunho à peça final: organização, referência e direção visual em cada entrega.
+              </p>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

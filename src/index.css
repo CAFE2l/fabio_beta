@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @import './components/Navbar.css';
 @import './components/Hero.css';
@@ -7,6 +7,7 @@
 @import './components/Projects.css';
 @import './components/ProjectCard.css';
 @import './components/Footer.css';
+@import './components/BackToTop.css';
 @import './pages/ProjectPage.css';
 
 /* Force light mode - block dark mode extensions */
@@ -17,30 +18,52 @@
 }
 
 :root {
-  /* Vintage/Editorial Palette - White background */
-  --bg-primary: #FFFFFF !important; /* Branco puro */
-  --bg-surface: #FAFAFA !important; /* Cinza quase branco */
-  --bg-surface-alt: #F5F5F5 !important; /* Cinza claro */
-  
-  --text-primary: #2C3E50 !important; /* Azul-marinho escuro */
-  --text-secondary: #546E7A !important; /* Azul desaturado */
-  --text-muted: #7A8FA5 !important; /* Cinza quente */
-  
-  /* Acentos vintage - sem roxo */
-  --accent-blue: #4A90A4 !important; /* Azul vintage */
-  --accent-teal: #5BA4A4 !important; /* Verde azulado */
-  --accent-warm: #C9A66B !important; /* Marrom quente */
-  --accent-cream: #E8D5B7 !important; /* Bege escuro */
-  
-  /* Bordas sutis */
+  /* Tipografia */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Paleta editorial vintage - fundo claro */
+  --bg-primary: #FFFFFF !important;
+  --bg-surface: #FAFAFA !important;
+  --bg-surface-alt: #F5F5F5 !important;
+
+  --text-primary: #2C3E50 !important;
+  --text-secondary: #546E7A !important;
+  --text-muted: #7A8FA5 !important;
+
+  /* Acentos */
+  --accent-blue: #4A90A4 !important;
+  --accent-blue-deep: #3A7A8C !important;
+  --accent-teal: #5BA4A4 !important;
+  --accent-warm: #C9A66B !important;
+  --accent-cream: #E8D5B7 !important;
+
+  /* Bordas */
   --border-light: rgba(44, 62, 80, 0.08) !important;
-  --border-medium: rgba(44, 62, 80, 0.12) !important;
-  --border-warm: rgba(201, 166, 107, 0.15) !important;
-  
-  /* Sombras vintage */
-  --shadow-soft: 0 4px 16px rgba(44, 62, 80, 0.08) !important;
-  --shadow-medium: 0 8px 24px rgba(44, 62, 80, 0.12) !important;
-  --shadow-warm: 0 4px 16px rgba(201, 166, 107, 0.1) !important;
+  --border-medium: rgba(44, 62, 80, 0.14) !important;
+  --border-warm: rgba(201, 166, 107, 0.18) !important;
+
+  /* Sombras */
+  --shadow-soft: 0 2px 12px rgba(44, 62, 80, 0.08) !important;
+  --shadow-medium: 0 8px 28px rgba(44, 62, 80, 0.12) !important;
+  --shadow-warm: 0 4px 16px rgba(201, 166, 107, 0.12) !important;
+
+  /* Raios */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  /* Layout */
+  --container-max: 1200px;
+  --container-pad: 20px;
+
+  /* Navbar flutuante (mobile-first) */
+  --nav-top: 12px;
+  --nav-height: 64px;
+
+  --ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 * {
@@ -54,6 +77,7 @@ html {
   color-scheme: light only !important;
   background-color: #FFFFFF !important;
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -64,11 +88,14 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-body);
   background-color: #FFFFFF !important;
   color: var(--text-primary) !important;
   line-height: 1.6;
   min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
@@ -76,15 +103,15 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
-  color: #2C3E50;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-  transition: all 0.2s ease;
 }
 
 button {
@@ -94,26 +121,83 @@ button {
   background: none;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: rgba(74, 144, 164, 0.18);
+  color: var(--text-primary);
+}
+
+/* Foco visível e acessível */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid rgba(74, 144, 164, 0.45);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Container utilitário */
 .container {
-  max-width: 1200px;
+  width: 100%;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--container-pad);
 }
 
 .app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: 90px;
+  padding-top: calc(var(--nav-top) + var(--nav-height) + 12px);
+}
+
+main {
+  flex: 1;
+  width: 100%;
 }
 
 section[id],
 footer[id] {
-  scroll-margin-top: 110px;
+  scroll-margin-top: calc(var(--nav-top) + var(--nav-height) + 24px);
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 0 16px;
+/* Toque: alvos interativos com tamanho mínimo confortável */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Barra de rolagem discreta (desktop) */
+@media (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-surface);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(44, 62, 80, 0.2);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(44, 62, 80, 0.3);
+  }
+}
+
+/* Redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
