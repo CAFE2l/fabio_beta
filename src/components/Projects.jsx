@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './Projects.css';
-import { projects } from '../data/projects';
-import ProjectCard from './ProjectCard';
+import WorksFolder from './WorksFolder';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -34,11 +33,7 @@ const Projects = () => {
           </motion.p>
         </motion.div>
 
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.slug} project={project} index={index} />
-          ))}
-        </div>
+        <WorksFolder />
       </div>
     </section>
   );

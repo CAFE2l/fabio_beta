@@ -8,7 +8,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight, Sparkles } from 'lucide-react';
 import canvaLogo from '../../Trabalhos/canva.png';
 import './Skills.css';
@@ -22,9 +22,27 @@ const fadeUp = {
   }),
 };
 
+const toolCardVariants = {
+  ...fadeUp,
+  hover: {
+    scale: 1.02,
+    y: -4,
+    transition: { type: 'spring', stiffness: 320, damping: 22 },
+  },
+};
+
+const toolIconVariants = {
+  hover: {
+    rotate: -8,
+    scale: 1.1,
+    transition: { type: 'spring', stiffness: 300, damping: 11 },
+  },
+};
+
 const Skills = () => {
   const radarRef = React.useRef(null);
   const radarInView = useInView(radarRef, { once: true, margin: '-80px' });
+  const prefersReducedMotion = useReducedMotion();
 
   const skills = [
     { subject: 'Criação no Canva', value: 92, fullMark: 100 },
@@ -113,12 +131,14 @@ const Skills = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="skills-tool-card"
-              variants={fadeUp}
+              variants={toolCardVariants}
               custom={0.1}
+              whileHover={prefersReducedMotion ? undefined : 'hover'}
+              whileTap={prefersReducedMotion ? undefined : { scale: 0.98 }}
             >
-              <span className="skills-tool-icon">
+              <motion.span className="skills-tool-icon" variants={toolIconVariants}>
                 <img src={canvaLogo} alt="" className="skills-tool-icon-img" />
-              </span>
+              </motion.span>
               <span className="skills-tool-body">
                 <span className="skills-tool-name">
                   Canva

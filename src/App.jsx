@@ -8,6 +8,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
 import ProjectPage from './pages/ProjectPage';
+import WorksPage from './pages/WorksPage';
 import BackToTop from './components/BackToTop';
 
 function ScrollManager() {
@@ -53,6 +54,7 @@ function App() {
                 </>
               }
             />
+            <Route path="/trabalhos" element={<WorksPage />} />
             <Route path="/project/:slug" element={<ProjectPage />} />
           </Routes>
         </AnimatePresence>

@@ -84,6 +84,7 @@ const ProjectCard = ({ project, index }) => {
           }}
           onMouseMove={handleMouseMove}
           whileHover={{ scale: shouldUse3D ? 1.02 : 1.01, y: shouldUse3D ? -8 : -4 }}
+          animate={{ rotate: isHovered && !prefersReducedMotion ? 0 : project.baseRotation }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
           <motion.div
@@ -99,7 +100,6 @@ const ProjectCard = ({ project, index }) => {
               transition={{ duration: 0.35 }}
             />
             <div className="project-image-overlay" aria-hidden="true" />
-            <span className="project-image-year">{project.year}</span>
           </motion.div>
 
           <div className="project-content">
@@ -122,8 +122,8 @@ const ProjectCard = ({ project, index }) => {
               animate={{
                 gap: isHovered ? 10 : 8,
                 background: isHovered
-                  ? 'linear-gradient(135deg, rgba(74,144,164,0.16), rgba(91,164,164,0.16))'
-                  : 'linear-gradient(135deg, rgba(74,144,164,0.1), rgba(91,164,164,0.1))',
+                  ? 'linear-gradient(135deg, rgba(58, 116, 132, 1), rgba(74, 144, 164, 1))'
+                  : 'linear-gradient(135deg, rgba(74, 144, 164, 1), rgba(91, 164, 164, 1))',
               }}
               transition={{ duration: 0.2 }}
             >

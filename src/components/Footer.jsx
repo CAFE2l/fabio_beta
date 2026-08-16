@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Mail } from 'lucide-react';
 import './Footer.css';
 import gmailIcon from '../../icons/Gmail.png';
 import instagramIcon from '../../icons/Instagram.png';
@@ -22,18 +21,21 @@ const Footer = () => {
       icon: instagramIcon,
       href: 'https://instagram.com',
       color: '#E1306C',
+      glow: 'rgba(225, 48, 108, 0.28)',
     },
     {
       name: 'LinkedIn',
       icon: linkedinIcon,
       href: 'https://www.linkedin.com/in/f%C3%A1bio-henrique-b-0775b23aa/',
       color: '#0A66C2',
+      glow: 'rgba(10, 102, 194, 0.28)',
     },
     {
       name: 'Email',
       icon: gmailIcon,
       href: 'mailto:fhbfabao@gmail.com',
       color: '#EA4335',
+      glow: 'rgba(234, 67, 53, 0.28)',
     },
   ];
 
@@ -75,7 +77,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon-card"
-              style={{ '--icon-color': social.color }}
+              style={{ '--icon-color': social.color, '--icon-glow': social.glow }}
               variants={fadeUp}
               custom={0.15 + index * 0.08}
             >
@@ -83,14 +85,7 @@ const Footer = () => {
                 <img src={social.icon} alt="" className="social-icon-img" />
               </span>
               <span className="social-icon-body">
-                <span className="social-icon-name">
-                  {social.name}
-                  {social.name === 'Email' ? (
-                    <Mail className="social-icon-arrow" aria-hidden="true" />
-                  ) : (
-                    <ArrowUpRight className="social-icon-arrow" aria-hidden="true" />
-                  )}
-                </span>
+                <span className="social-icon-name">{social.name}</span>
                 <span className="social-icon-hint">
                   {social.name === 'Email' ? 'fhbfabao@gmail.com' : `@${social.name.toLowerCase()}`}
                 </span>
@@ -115,7 +110,6 @@ const Footer = () => {
           transition={{ duration: 0.5, delay: 0.5 }}
         >
           <p>© 2026 Fábio Borges — todos os direitos reservados</p>
-          <p className="footer-made">Feito com design & café ☕</p>
         </motion.div>
       </div>
     </footer>
