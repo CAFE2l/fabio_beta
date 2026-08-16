@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
+import WorkProcess from './components/WorkProcess';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
 import ProjectPage from './pages/ProjectPage';
@@ -50,6 +51,7 @@ function App() {
                   <Hero />
                   <About />
                   <Skills />
+                  <WorkProcess />
                   <Projects />
                 </>
               }

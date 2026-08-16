@@ -1,0 +1,247 @@
+.workprocess {
+  /* Paleta azul/roxo elétrico (theme.ts) usada nos badges e na linha conectora */
+  --electric-blue: #1697a6;
+  --electric-blue-deep: #117783;
+  --electric-purple: #7b5bb7;
+  --electric-purple-light: #9b78d2;
+  padding: 40px 0 48px;
+}
+
+.workprocess-heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.workprocess-eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  margin-bottom: 8px;
+}
+
+.workprocess-title {
+  font-size: clamp(1.8rem, 6vw, 2.75rem);
+  line-height: 1.15;
+}
+
+.workprocess-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.workprocess-steps {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Linha do tempo vertical (mobile) */
+.workprocess-track {
+  position: absolute;
+  top: 52px;
+  bottom: 52px;
+  left: 24px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--electric-blue), var(--electric-purple));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.workprocess-step {
+  position: relative;
+  padding: 20px 18px 20px 72px;
+  background: linear-gradient(135deg, rgba(250, 250, 250, 0.95), rgba(245, 245, 245, 0.95));
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Anel de LED: borda em gradiente cônico que acende no hover */
+.workprocess-step::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius-lg);
+  padding: 1px;
+  background: conic-gradient(
+    from var(--led-angle, 0deg),
+    var(--electric-blue),
+    var(--electric-purple) 40%,
+    var(--electric-blue) 60%,
+    var(--electric-purple) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.workprocess-step-badge {
+  position: absolute;
+  left: 24px;
+  top: 20px;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--electric-blue-deep), var(--electric-blue) 55%, #2e9fa8);
+  border: 3px solid #ffffff;
+  box-shadow: 0 6px 18px rgba(123, 91, 183, 0.32);
+  transition: box-shadow 0.25s var(--ease-out);
+}
+
+.workprocess-step:nth-of-type(2) .workprocess-step-badge {
+  background: linear-gradient(135deg, var(--electric-blue), #2f93ac 55%, #4b86b5);
+}
+
+.workprocess-step:nth-of-type(3) .workprocess-step-badge {
+  background: linear-gradient(135deg, #2e9fa8, #4e85b6 55%, #6c75bd);
+}
+
+.workprocess-step:nth-of-type(4) .workprocess-step-badge {
+  background: linear-gradient(135deg, #4e85b6, #6c75bd 55%, var(--electric-purple));
+}
+
+.workprocess-step:nth-of-type(5) .workprocess-step-badge {
+  background: linear-gradient(135deg, #6c75bd, var(--electric-purple) 60%, var(--electric-purple-light));
+}
+
+.workprocess-step-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.workprocess-step-index {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--electric-purple);
+  background: rgba(123, 91, 183, 0.1);
+  border: 1px solid rgba(123, 91, 183, 0.26);
+  border-radius: var(--radius-pill);
+  padding: 2px 10px;
+  margin-bottom: 8px;
+}
+
+.workprocess-step-title {
+  font-size: 17px;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.workprocess-step-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* ===== Tablet ===== */
+@media (min-width: 640px) {
+  .workprocess {
+    padding: 56px 0 64px;
+  }
+
+  .workprocess-heading {
+    margin-bottom: 36px;
+  }
+
+  .workprocess-step {
+    padding: 24px 24px 24px 76px;
+  }
+}
+
+@property --led-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes led-run {
+  to {
+    --led-angle: 360deg;
+  }
+}
+
+/* ===== Desktop ===== */
+@media (min-width: 1024px) {
+  .workprocess {
+    padding: 72px 0 80px;
+  }
+
+  .workprocess-steps {
+    --step-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--step-gap);
+    margin-top: 30px;
+  }
+
+  /* Linha conectora horizontal entre os steps (levemente acima dos cards, cruzando os badges) */
+  .workprocess-track {
+    top: -3px;
+    bottom: auto;
+    left: calc((100% - 4 * var(--step-gap)) / 5 / 2);
+    right: calc((100% - 4 * var(--step-gap)) / 5 / 2);
+    width: auto;
+    height: 2px;
+    background: linear-gradient(90deg, var(--electric-blue), var(--electric-purple));
+  }
+
+  .workprocess-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 48px 16px 24px;
+    transform-origin: top center;
+    transition: border-color 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+  }
+
+  .workprocess-step-badge {
+    left: 50%;
+    top: -32px;
+  }
+
+  .workprocess-step-title {
+    text-align: center;
+  }
+
+  .workprocess-step-desc {
+    text-align: center;
+  }
+
+  .workprocess-step:hover {
+    border-color: rgba(123, 91, 183, 0.35);
+    box-shadow: 0 14px 30px rgba(44, 62, 80, 0.16), 0 4px 14px rgba(123, 91, 183, 0.16);
+  }
+
+  .workprocess-step:hover .workprocess-step-badge {
+    box-shadow: 0 0 0 5px rgba(123, 91, 183, 0.16), 0 6px 18px rgba(123, 91, 183, 0.4);
+  }
+
+  .workprocess-step:hover::before {
+    opacity: 1;
+    animation: led-run 3s linear infinite;
+    filter: drop-shadow(0 0 6px rgba(123, 91, 183, 0.45));
+  }
+}
